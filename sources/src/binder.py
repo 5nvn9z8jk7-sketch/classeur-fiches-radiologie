@@ -15,11 +15,12 @@ fo1={"code":"FO-01","organe":"Foie","oc":"#0f6e6e","plain":"LI-RADS CT/IRM – f
 order=["Transversal","Neuro","Cou","Sein","Thorax","Cœur · vaisseaux","Foie","Pancréas","Tube digestif","Rein · surrénale","Pelvis","Ostéo-articulaire"]
 desc={"Transversal":"Sécurité, ganglions et situations communes à toutes les modalités","Neuro":"Encéphale, moelle, perfusion, traumatologie crânienne et cervicale","Cou":"Thyroïde","Sein":"Mammographie, tomosynthèse, échographie, IRM","Thorax":"Poumon, vaisseaux pulmonaires","Foie":"Foie cirrhotique et foie sain","Rein · surrénale":"Masses kystiques rénales, surrénales","Pelvis":"Prostate, annexes, endométriose","Ostéo-articulaire":"Tumeurs osseuses, traumatologie, rachis, mesures orthopédiques","Cœur · vaisseaux":"Coroscanner","Pancréas":"Lésions kystiques du pancréas","Tube digestif":"Rectum, côlon, appendice, grêle"}
 meta=[m for m in meta if not m.get('hidden')]
-if not os.path.exists(f'{D}/pdf/FO-01-base.pdf'): shutil.copy(f'{D}/pdf/FO-01.pdf',f'{D}/pdf/FO-01-base.pdf')
-_w=PdfWriter()
-for _p in (f'{D}/pdf/FO-01-base.pdf',f'{D}/pdf/FO-01X.pdf'):
-    for _pg in PdfReader(_p).pages: _w.add_page(_pg)
-_w.write(f'{D}/pdf/FO-01.pdf')
+if os.path.exists(f'{D}/pdf/FO-01X.pdf'):
+    if not os.path.exists(f'{D}/pdf/FO-01-base.pdf'): shutil.copy(f'{D}/pdf/FO-01.pdf',f'{D}/pdf/FO-01-base.pdf')
+    _w=PdfWriter()
+    for _p in (f'{D}/pdf/FO-01-base.pdf',f'{D}/pdf/FO-01X.pdf'):
+        for _pg in PdfReader(_p).pages: _w.add_page(_pg)
+    _w.write(f'{D}/pdf/FO-01.pdf')
 fiches=[m for m in meta]+[fo1]
 fiches.sort(key=lambda m:(order.index(m['organe']),m['code']))
 pc={m['code']:len(PdfReader(f"{D}/pdf/{m['code']}.pdf").pages) for m in fiches}

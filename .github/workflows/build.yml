@@ -21,7 +21,8 @@ jobs:
           python3 -m playwright install --with-deps chromium
       - name: Build fiches, classeur, site
         run: |
-          mkdir -p work && cp -r sources/src sources/web work/
+          mkdir -p work/pdf && cp -r sources/src sources/web work/
+          cp site/pdf/*.pdf work/pdf/
           cd work
           python3 src/build.py
           python3 src/binder.py

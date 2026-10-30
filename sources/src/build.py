@@ -1,5 +1,6 @@
 import json, subprocess, sys, os, html, re, segno
 D=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+os.makedirs(f'{D}/pdf',exist_ok=True)
 CH=os.path.expanduser('~/.cache/ms-playwright/chromium-1217/chrome-linux64/chrome')
 import glob as _glob
 def _chrome():
