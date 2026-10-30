@@ -145,6 +145,31 @@ bind('cadrads',(f,form)=>{let c=f.get('st'); const b=f.get('b'); if(c==='4') c=b
  const [cl,cdt]=M[c];
  return {k:'Coroscanner',cls:cl,cat:code,why:(hrp?'Plaque à haut risque : au moins 2 signes. ':'')+(P?`Score calcique ${cac} → ${P}.`:''),cdt,ph:`Coroscanner : ${code}. ${cdt.replace(/&gt;/g,'>')}`}});
 
+// ---------- Score calcique ----------
+bind('cac',(f,form)=>{const v=k=>Math.max(0,Math.round(+f.get(k)||0)); const A={TC:v('tc'),IVA:v('iva'),Cx:v('cx'),CD:v('cd')};
+ const s=A.TC+A.IVA+A.Cx+A.CD, nv=Object.values(A).filter(x=>x>0).length, age=+f.get('age')||0, sexe=f.get('sexe');
+ const pr=f.get('pct'), pct=pr===''||pr===null?null:Math.min(100,Math.max(0,Math.round(+pr))), p75=pct!==null&&pct>=75;
+ const ex=$$('input[name=ex]:checked',form).map(i=>i.dataset.n), ng=f.get('acq')==='ng';
+ let lab,cl; if(s===0){lab='absent';cl='c1'} else if(s<10){lab='minime';cl='c2'} else if(s<100){lab='léger';cl='c3'} else if(s<300){lab='modéré';cl='c4'} else if(s<1000){lab='sévère';cl='c5'} else {lab='étendu';cl='c5'}
+ const drs=s===0?'CAC-DRS 0':'CAC-DRS '+(s<100?'A1':s<300?'A2':'A3')+'/N'+nv;
+ let cdt;
+ if(s===0){ cdt=ex.length?`Score à 0, mais ${ex.join(', ')} : ne pas différer le traitement sur ce seul résultat.`:'Traitement hypolipémiant différable (ACC/AHA 2026, 2a) ; nouveau score à envisager dans 3 à 7 ans.';
+  if(age>75&&!ex.length) cdt+=' Après 75 ans, un score de 0 à 10 peut faire reclasser à plus bas risque (2b).'; }
+ else if(s<100&&!p75){ cdt=(age>75&&s<=10)?'Après 75 ans, un score de 0 à 10 peut faire reclasser à plus bas risque (2b) ; sinon statine d\'intensité modérée raisonnable, LDL &lt; 1,00 g/L.':'Statine d\'intensité modérée raisonnable (ACC/AHA 2026, 2a), LDL &lt; 1,00 g/L (2,6 mmol/L). ESC/EAS 2025 : modificateur de risque.'; if(pct===null) cdt+=' Vérifier le percentile : ≥ 75e = traitement indiqué.'; }
+ else if(s<300){ cdt='Traitement hypolipémiant indiqué (ACC/AHA 2026, classe 1), statine en première intention : baisse ≥ 50 % et LDL &lt; 0,70 g/L (1,8 mmol/L).'+(s<100?' Indication liée au percentile ≥ 75e.':' ESC/EAS 2025 : peut faire passer à la catégorie de risque supérieure.'); }
+ else if(s<1000){ cdt='Traitement (ACC/AHA 2026, classe 1), LDL &lt; 0,70 g/L, intensification vers &lt; 0,55 g/L raisonnable (2a). ESC/EAS 2025 : très haut risque, LDL &lt; 0,55 g/L (1,4 mmol/L) et baisse ≥ 50 %.'; }
+ else { cdt='Traitement (classe 1) : baisse ≥ 50 % et LDL &lt; 0,55 g/L (1,4 mmol/L). Très haut risque (ESC/EAS 2025).'; }
+ let why=s>0?`${nv} artère${nv>1?'s':''} atteinte${nv>1?'s':''}.`:'';
+ if(pct!==null) why+=` ${pct}e percentile (MESA)${p75?' : au-delà du 75e.':'.'}`;
+ if(ng) why+=' Scanner non synchronisé : score indicatif, sous-estimation possible ; une absence de calcium n\'est pas rassurante (jusqu\'à 24 % de faux négatifs).';
+ if(age&&(age<45||age>84)&&pct!==null) why+=' Percentiles MESA validés de 45 à 84 ans seulement.';
+ if(ng&&s>=100) cdt='Calcifications modérées ou sévères sur scanner non synchronisé : statine de haute intensité raisonnable (ACC/AHA 2026, 2a). '+cdt;
+ const det=`TC ${A.TC}, IVA ${A.IVA}, Cx ${A.Cx}, CD ${A.CD}`; const plain=cdt.replace(/&lt;/g,'<').replace(/&gt;/g,'>');
+ const tech=ng?'Évaluation sur scanner thoracique non synchronisé (score indicatif). ':'Acquisition synchronisée à l\'ECG, sans injection, 120 kV, coupes de 3 mm. ';
+ const ph=s===0?`${tech}Score calcique coronaire (Agatston) : 0 UA, absence de calcification coronaire détectable (CAC-DRS 0). ${plain} Un score à 0 n'exclut pas une plaque non calcifiée.`
+  :`${tech}Score calcique coronaire (Agatston) : ${s} UA (${det}), ${drs}${pct!==null?`, ${pct}e percentile pour ${sexe==='femme'?'une femme':'un homme'} de ${age} ans (MESA)`:''}. Calcifications coronaires ${lab==='absent'?'absentes':lab+'s'}. ${plain}`;
+ return {k:'Score d\'Agatston',v:s+' UA',cls:cl,cat:`${lab.charAt(0).toUpperCase()+lab.slice(1)} · ${drs}`,why:why.trim(),cdt,ph}});
+
 // ---------- LI-RADS ----------
 const LIC={NC:['c0','LR-NC','Non catégorisable','Nouvelle imagerie (même technique ou autre) dans un délai ≤ 3 mois.'],
  TIV:['ct','LR-TIV','Tumeur dans une veine','Discussion multidisciplinaire. En cas de doute, ne pas classer TIV.'],
