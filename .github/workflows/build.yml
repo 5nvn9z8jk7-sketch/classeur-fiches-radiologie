@@ -43,3 +43,11 @@ jobs:
             git commit -m "Build automatique : PDF des fiches, classeur complet, zip par organe et site regeneres depuis les sources"
             git push
           fi
+      - name: Publier la branche gh-pages
+        run: |
+          cd site
+          git init -q
+          git checkout -q -b gh-pages
+          git add -A
+          git -c user.name="github-actions[bot]" -c user.email="41898282+github-actions[bot]@users.noreply.github.com" commit -qm "Publication automatique du site sur gh-pages"
+          git push -qf "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" gh-pages
