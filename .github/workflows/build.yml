@@ -26,6 +26,7 @@ jobs:
           cd work
           python3 src/build.py
           python3 src/binder.py
+          python3 -c "import shutil; shutil.make_archive('Fiches-radiologie-par-organe','zip','.','Fiches-radiologie-par-organe')"
           python3 web/build_web.py
           cp web/extra/f/CV-02-cr.html site/f/CV-02-cr.html
       - name: Mise a jour du dossier site
