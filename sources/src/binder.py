@@ -98,9 +98,10 @@ veille={
 "OS-06":("Paley · protocole de Lyon","Seuils TA-GT dépendants de la modalité (scanner ou IRM)"),
 "OS-07":("Mesures radiographiques usuelles","—"),
 }
-rrows=''.join(f'<tr><td class="nw"><span class="ch" style="background:{m["oc"]};color:#fff;font-size:7.2pt">{m["code"]}</span></td><td>{html.escape(html.unescape(m["plain"]))}</td><td>{veille[m["code"]][0]}</td><td class="nw">29/10/2026</td><td class="mute">{veille[m["code"]][1]}</td></tr>' for s_ in plan for m,_ in s_['fiches'])
+vdate={"NE-01":"30/10/2026"}
+rrows=''.join(f'<tr><td class="nw"><span class="ch" style="background:{m["oc"]};color:#fff;font-size:7.2pt">{m["code"]}</span></td><td>{html.escape(html.unescape(m["plain"]))}</td><td>{veille[m["code"]][0]}</td><td class="nw">{vdate.get(m["code"],"29/10/2026")}</td><td class="mute">{veille[m["code"]][1]}</td></tr>' for s_ in plan for m,_ in s_['fiches'])
 registre=f'''<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">{css}<style>.tb td{{font-size:8pt;padding:3px 5px}}</style></head><body>
-<div class="head" style="--oc:#1d2430"><div class="l"><span class="pill" style="background:#1d2430">Classeur · veille</span><h1>Registre des versions</h1></div><div class="meta"><b>Dernière vérification : 29 octobre 2026</b><br>référence utilisée par fiche et mises à jour attendues</div></div>
+<div class="head" style="--oc:#1d2430"><div class="l"><span class="pill" style="background:#1d2430">Classeur · veille</span><h1>Registre des versions</h1></div><div class="meta"><b>Dernière vérification : 30 octobre 2026</b><br>référence utilisée par fiche et mises à jour attendues</div></div>
 <table class="tb"><tr><th>Code</th><th>Fiche</th><th>Référence en vigueur</th><th>Vérifiée le</th><th>À surveiller</th></tr>{rrows}</table>
 <div class="key sm" style="margin-top:8px;--oc:#1d2430;--ol:#f3f4f6"><b class="t">Mise à jour :</b> à chaque nouvelle version d'une recommandation, la fiche concernée est révisée, puis la date de vérification et ce registre sont mis à jour.</div>
 </body></html>'''
