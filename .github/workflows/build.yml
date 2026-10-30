@@ -25,6 +25,8 @@ jobs:
           cp site/pdf/*.pdf work/pdf/
           cd work
           python3 src/build.py
+          CH=$(ls "$HOME"/.cache/ms-playwright/chromium-*/chrome-linux*/chrome)
+          "$CH" --headless --no-sandbox --disable-gpu --no-pdf-header-footer --print-to-pdf=pdf/FO-01.pdf src/FO-01.html
           python3 src/binder.py
           python3 -c "import shutil; shutil.make_archive('Fiches-radiologie-par-organe','zip','.','Fiches-radiologie-par-organe')"
           python3 web/build_web.py

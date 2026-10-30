@@ -3,7 +3,7 @@ import json, os, re, html, shutil, ast
 D = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 S = f'{D}/src'; OUT = f'{D}/site'; W = f'{D}/web'
 meta = json.load(open(f'{S}/fiches.json'))
-order = ["Transversal","Neuro","Cou","Sein","Thorax","Cœur · vaisseaux","Foie","Pancréas","Tube digestif","Rein · surrénale","Pelvis","Ostéo-articulaire"]
+order = ["Transversal","Neuro","ORL","Sein","Thorax","Cœur · vaisseaux","Foie","Pancréas","Tube digestif","Rein · surrénale","Pelvis","Ostéo-articulaire"]
 bsrc = open(f'{S}/binder.py').read()
 desc = ast.literal_eval(re.search(r'^desc=(\{.*?\})\s*$', bsrc, re.M).group(1))
 veille = ast.literal_eval(re.search(r'^veille=(\{.*?\n\})', bsrc, re.M | re.S).group(1))
@@ -110,6 +110,12 @@ CODES = {m['code'] for m in fiches}
 index_data = []
 for i, m in enumerate(fiches):
     code = m['code']
+    if m.get('no_source'):
+        src = f'{W}/extra/f/{code}.html'
+        shutil.copy(src, f'{OUT}/f/{code}.html')
+        xt = re.search(r'<main[^>]*>(.*)</main>', open(src).read(), re.S)
+        index_data.append({'c': code, 'o': m['organe'], 'oc': m['oc'], 't': html.unescape(m['plain']), 'r': m['ref'], 's': m['sub'], 'x': text_of(xt.group(1))[:6000]})
+        continue
     if code == 'FO-01':
         st1, b1 = parts(f'{S}/FO-01.html'); st2, b2 = parts(f'{S}/FO-01X.html')
         css = scope_css(st1, '.fx1') + '\n' + scope_css(st2, '.fx2')
@@ -280,6 +286,12 @@ CODES = {m['code'] for m in fiches}
 index_data = []
 for i, m in enumerate(fiches):
     code = m['code']
+    if m.get('no_source'):
+        src = f'{W}/extra/f/{code}.html'
+        shutil.copy(src, f'{OUT}/f/{code}.html')
+        xt = re.search(r'<main[^>]*>(.*)</main>', open(src).read(), re.S)
+        index_data.append({'c': code, 'o': m['organe'], 'oc': m['oc'], 't': html.unescape(m['plain']), 'r': m['ref'], 's': m['sub'], 'x': text_of(xt.group(1))[:6000]})
+        continue
     if code == 'FO-01':
         st1, b1 = parts(f'{S}/FO-01.html'); st2, b2 = parts(f'{S}/FO-01X.html')
         css = scope_css(st1, '.fx1') + '\n' + scope_css(st2, '.fx2')

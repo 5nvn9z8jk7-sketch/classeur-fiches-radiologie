@@ -41,4 +41,5 @@ def build(m):
     print(m['code'],'pages',pages,'expected',m.get('pages',1))
 codes=sys.argv[1:]
 for m in meta:
+    if m.get('no_source'): continue
     if not codes or m['code'] in codes: build(m)
