@@ -137,3 +137,4 @@ for i,s in enumerate(plan):
     d=f'{z}/{i:02d}-{s["o"].replace(" · ","-")}'; os.makedirs(d)
     for m,p in s['fiches']:
         shutil.copy(f"{D}/pdf/{m['code']}.pdf",f"{d}/{m['code']} {html.unescape(m['plain']).replace('/','-')}.pdf")
+# relance du build pour le premier deploiement GitHub Pages
