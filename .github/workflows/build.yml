@@ -1,0 +1,41 @@
+name: Build classeur
+on:
+  push:
+    branches: [main]
+    paths: ['sources/**', '.github/workflows/build.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Dependances
+        run: |
+          pip install playwright segno pypdf
+          sudo apt-get update -q && sudo apt-get install -y -q poppler-utils
+          python3 -m playwright install --with-deps chromium
+      - name: Build fiches, classeur, site
+        run: |
+          mkdir -p work && cp -r sources/src sources/web work/
+          cd work
+          python3 src/build.py
+          python3 src/binder.py
+          python3 web/build_web.py
+          cp web/extra/f/CV-02-cr.html site/f/CV-02-cr.html
+      - name: Mise a jour du dossier site
+        run: |
+          rm -rf site
+          cp -r work/site site
+          rm -rf work
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then echo "Rien a regenerer"; else
+            git commit -m "Build automatique : PDF des fiches, classeur complet, zip par organe et site regeneres depuis les sources"
+            git push
+          fi

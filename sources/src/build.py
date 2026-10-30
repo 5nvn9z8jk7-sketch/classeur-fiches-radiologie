@@ -1,6 +1,13 @@
 import json, subprocess, sys, os, html, re, segno
 D=os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CH=os.path.expanduser('~/.cache/ms-playwright/chromium-1217/chrome-linux64/chrome')
+import glob as _glob
+def _chrome():
+    c=[os.environ.get('CHROME')]+_glob.glob(os.path.expanduser('~/.cache/ms-playwright/chromium-*/chrome-linux*/chrome'))+['/usr/bin/chromium','/usr/bin/chromium-browser','/usr/bin/google-chrome','/usr/bin/google-chrome-stable']
+    for x in c:
+        if x and os.path.exists(x): return x
+    raise SystemExit('Chrome/Chromium introuvable (installer playwright ou definir CHROME')
+CH=_chrome()
 meta=json.load(open(f'{D}/src/fiches.json'))
 sys.path.insert(0,f'{D}/src/gen'); from atlas import A as ATLAS
 def head(m,suite=False):
