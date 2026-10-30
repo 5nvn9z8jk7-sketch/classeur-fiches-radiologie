@@ -1,0 +1,66 @@
+<h2>Quand demander une perfusion · elle ne doit jamais retarder le traitement</h2>
+<div class="rules" style="--n:4">
+<div><b>0–4,5 h</b>thrombolyse sans imagerie avancée si le scanner sans injection est fait ; perfusion non nécessaire</div>
+<div><b>4,5–9 h ou réveil</b>recherche d'un mismatch pour une thrombolyse si pas de thrombectomie</div>
+<div><b>6–24 h, occlusion proximale</b>sélection pour thrombectomie (profils DAWN, DEFUSE 3)</div>
+<div><b>Aide au diagnostic</b>occlusion distale peu visible, doute avec un « mime » d'AVC</div>
+</div>
+<h2>Acquisition · à vérifier avant toute lecture</h2>
+<table class="tb"><tr><th style="width:22%">Paramètre</th><th style="width:30%">Recommandé</th><th>Pourquoi / exigence d'IntelliSpace Portal (ISP)</th></tr>
+<tr><td><b>Durée</b></td><td>60–70 s (≈ 60 s ; jamais &lt; 45 s)</td><td>Capter la montée <b>et</b> la descente du bolus veineux ; une courbe tronquée fausse toutes les cartes</td></tr>
+<tr><td><b>Ligne de base</b></td><td>5–10 s, au moins 3 cycles sans contraste</td><td>Départ ≈ 4 s après le début de l'injection</td></tr>
+<tr><td><b>Résolution temporelle</b></td><td><b>≤ 4 s</b> entre deux acquisitions</td><td>&gt; 4 s : valeurs relatives seulement ; 4,1–4,5 s : summary map orange ; &gt; 4,5 s : summary map indisponible</td></tr>
+<tr><td><b>Injection</b></td><td>40–50 mL à 4–6 mL/s + 20–40 mL de sérum ; cathéter 18–20 G</td><td>Injecteur automatique, bolus compact (70 mL + 45 mL en mode Jog)</td></tr>
+<tr><td><b>Couverture</b></td><td>≥ 8 cm au-dessus des orbites</td><td>4 cm sous-estiment l'étendue de la lésion</td></tr>
+</table>
+<h2>Les cartes · ce qu'elles mesurent</h2>
+<table class="tb"><tr><th style="width:15%">Carte</th><th style="width:13%">Unité</th><th>Définition</th><th style="width:13%">Cœur</th><th style="width:13%">Pénombre</th></tr>
+<tr><td><b>CBF</b> débit</td><td>mL/100 g/min</td><td>Volume de sang traversant le tissu par minute (CBV / MTT)</td><td><span class="ch r5">↓↓</span></td><td><span class="ch r3">↓</span></td></tr>
+<tr><td><b>CBV</b> volume</td><td>mL/100 g</td><td>Volume de sang dans le tissu (rapport des aires tissu / veine)</td><td><span class="ch r5">↓</span></td><td><span class="ch r1">normal ou ↑</span></td></tr>
+<tr><td><b>MTT</b></td><td>s</td><td>Temps moyen de transit dans le lit capillaire</td><td><span class="ch r4">↑</span></td><td><span class="ch r4">↑</span></td></tr>
+<tr><td><b>TTP</b> ou <b>Tmax</b></td><td>s</td><td>TTP : temps jusqu'au pic de la courbe tissulaire. Tmax : pic de la fonction résidu après déconvolution ; le plus sensible au retard</td><td><span class="ch r4">↑</span></td><td><span class="ch r4">↑</span></td></tr>
+</table>
+<div class="sm mute" style="margin-top:3px">Cœur = tissu infarci (irréversible). Pénombre = tissu hypoperfusé mais viable, à sauver par la recanalisation. Oligémie bénigne = retard modéré sans risque d'infarctus.</div>
+<h2>Pas à pas sur IntelliSpace Portal · application CT Brain Perfusion</h2>
+<table class="tb"><tr><th style="width:4%">#</th><th style="width:20%">Étape</th><th>Ce qu'il faut vérifier</th></tr>
+<tr><td>1</td><td><b>Ouvrir la série</b></td><td>Lancement automatique : recalage, masque cérébral, artère et veine de référence, ligne miroir, contrôle « Traffic Lights ». Coupes fines regroupées à ≈ 5 mm</td></tr>
+<tr><td>2</td><td><b>Traffic Lights</b></td><td><span class="ch r3">jaune</span> résultats à prendre avec prudence · <span class="ch r5">rouge</span> analyse non recommandée (mouvement sévère, rehaussement très faible, intervalle &gt; 4,5 s, nombreux voxels invalides)</td></tr>
+<tr><td>3</td><td><b>Mouvement</b></td><td>Passer en Average puis Cine. Correction 3D ; supprimer au plus 8 points temporels, jamais plus de 2 consécutifs</td></tr>
+<tr><td>4</td><td><b>Artère et veine</b></td><td>Artère : pic le plus précoce (ACA ou ACM, <b>côté sain</b>). Veine : rehaussement maximal (sinus sagittal supérieur), pic après l'artère. Cliquer « Use for Calculation »</td></tr>
+<tr><td>5</td><td><b>Courbes</b></td><td>Montée et descente complètes ; arrivée artérielle avant la veine ; arrivée du bolus retardée &gt; 15 s = problème</td></tr>
+<tr><td>6</td><td><b>Ligne médiane et masque</b></td><td>Ligne entre les deux hémisphères (comparaison au côté sain) ; masque 15–400 HU, sans crâne ni ventricules</td></tr>
+<tr><td>7</td><td><b>Cartes et summary map</b></td><td>Lire les 4 cartes, puis la summary map et les volumes 3D (« Summary Map Statistics »)</td></tr>
+</table>
+{{HEAD2}}
+<h2>Summary map Philips · lire les couleurs</h2>
+<div class="g2">
+<table class="tb"><tr><th>Couleur</th><th>Définition par défaut (méthode « Arrival Time Sensitive »)</th></tr>
+<tr><td><span class="ch r5">Rouge</span></td><td>MTT relatif &gt; 150 % du côté sain <b>et</b> CBV &lt; 2 mL/100 g : cœur estimé</td></tr>
+<tr><td><span class="ch r1">Vert</span></td><td>MTT relatif &gt; 150 % et CBV ≥ 2 mL/100 g : pénombre estimée</td></tr>
+<tr><td><span class="ch r3">Jaune</span></td><td>Option désactivée par défaut : perfusion légèrement réduite</td></tr>
+<tr><td><span class="ch r4">Orange</span></td><td>Intervalle 4,1–4,5 s : zone de MTT allongé, sans séparation cœur / pénombre</td></tr></table>
+<div class="c"><h3>Volumes : convertir au format des essais</h3><ul><li>ISP donne V<sub>vert</sub>, V<sub>rouge</sub> et le rapport V<sub>vert</sub> / (V<sub>vert</sub> + V<sub>rouge</sub>)</li><li><b>Ratio de mismatch</b> des essais = (V<sub>vert</sub> + V<sub>rouge</sub>) / V<sub>rouge</sub></li><li><b>Mismatch absolu</b> = V<sub>vert</sub></li><li>Option <b>Tmax</b> (méthode « Arrival Time Insensitive », ISP 12.1.6) : Philips ne fournit pas de seuil recommandé, ils doivent être validés localement</li></ul></div>
+</div>
+<div class="key sm" style="margin-top:5px"><b class="t">Point clé :</b> les seuils par défaut d'ISP viennent de Wintermark (2006 : MTT &gt; 145 %, CBV &lt; 2,0 mL/100 g). Ce ne sont <b>pas</b> ceux des essais de thrombectomie (cœur : rCBF &lt; 30 %, hypoperfusion : Tmax &gt; 6 s, logiciel RAPID). Dans une étude sur ISP, le cœur par défaut était en médiane de <b>42 mL</b> contre <b>10 mL</b> d'infarctus final en diffusion, avec une surestimation &gt; 50 mL chez <b>27 %</b> des patients. <b>Ne jamais exclure un patient d'une thrombectomie sur le seul volume rouge.</b></div>
+<h2>Critères d'imagerie et recommandations (AHA/ASA 2026, ESO)</h2>
+<table class="tb"><tr><th style="width:20%">Situation</th><th>Critères d'imagerie</th><th style="width:30%">Recommandation</th></tr>
+<tr><td><b>0–4,5 h</b>, déficit invalidant</td><td>Scanner sans injection : pas d'hémorragie. Aucune imagerie avancée exigée</td><td><span class="ch r1">Thrombolyse</span> altéplase ou ténectéplase 0,25 mg/kg (AHA 2026, ESO 2023)</td></tr>
+<tr><td><b>4,5–9 h</b> ou réveil (≤ 9 h du milieu du sommeil), sans thrombectomie</td><td>Profil EXTEND : cœur &lt; 70 mL, ratio &gt; 1,2, mismatch &gt; 10 mL (ou mismatch diffusion–FLAIR en IRM)</td><td><span class="ch r1">Thrombolyse</span> raisonnable (AHA 2026) ; recommandée par l'ESO 2021</td></tr>
+<tr><td><b>Thrombectomie 0–6 h</b> (ACI, M1)</td><td>ASPECTS 3–10 au scanner sans injection ; perfusion non indispensable</td><td><span class="ch r1">Recommandée</span> ; ASPECTS 0–2 : patients sélectionnés</td></tr>
+<tr><td><b>6–16 h</b> · DEFUSE 3</td><td>Cœur &lt; 70 mL, ratio ≥ 1,8, pénombre ≥ 15 mL</td><td rowspan="2"><span class="ch r1">Recommandée</span> (AHA 2026, ESO-ESMINT)</td></tr>
+<tr><td><b>6–24 h</b> · DAWN</td><td>Mismatch clinique / cœur : ≥ 80 ans, NIHSS ≥ 10, cœur &lt; 21 mL · &lt; 80 ans, NIHSS ≥ 10, cœur &lt; 31 mL · &lt; 80 ans, NIHSS ≥ 20, cœur 31–51 mL</td></tr>
+<tr><td><b>6–24 h, cœur étendu</b></td><td>ASPECTS 3–5, âge &lt; 80 ans, pas d'effet de masse ; un cœur en perfusion &gt; 70 mL n'est plus un critère d'exclusion à lui seul</td><td><span class="ch r3">Recommandée</span> chez des patients sélectionnés (AHA 2026)</td></tr>
+<tr><td><b>Occlusion moyenne ou distale</b></td><td>M2 non dominante, M3, ACA, ACP</td><td><span class="ch r4">Pas de thrombectomie systématique</span> (ESCAPE-MeVO et DISTAL négatifs)</td></tr>
+</table>
+<div class="g3" style="margin-top:6px">
+<div class="c"><h3>Pièges techniques</h3><ul><li>Artère de référence en territoire ischémique ou courbe tronquée : cartes faussées</li><li>Faible débit cardiaque, fibrillation atriale : bolus étalé</li><li>Sténose ou occlusion de l'ACI controlatérale : comparaison faussée</li><li>Lacunes et fosse postérieure peu visibles : une perfusion normale n'exclut pas un AVC</li></ul></div>
+<div class="c"><h3>Cœur faussé</h3><ul><li><b>« Ghost core »</b> : surestimation du cœur dans les premières heures, surtout si les collatérales sont pauvres (6 à 58 % des patients selon les séries)</li><li>Cœur sous-estimé en fenêtre tardive (« perfusion scotoma »)</li><li>Ratio d'intensité d'hypoperfusion (Tmax &gt; 10 s / Tmax &gt; 6 s) &lt; 0,4 : bonnes collatérales</li></ul></div>
+<div class="c"><h3>Mimes d'AVC</h3><ul><li><b>Crise d'épilepsie</b> : hyperperfusion corticale, hors territoire artériel, sans occlusion</li><li><b>Migraine avec aura</b> : hypoperfusion de <b>plusieurs territoires</b></li><li>Pas d'occlusion visible + hypoperfusion hors territoire : penser au mime</li></ul></div>
+</div>
+<h2>Compte rendu type</h2>
+<div class="rules" style="--n:4">
+<div><b>Qualité</b>Traffic Lights, artère et veine choisies, mouvement</div>
+<div><b>Méthode</b>logiciel, version, seuils (défaut ISP ou personnalisés)</div>
+<div><b>Résultats</b>volume du cœur, de la pénombre, ratio et mismatch absolu (format des essais)</div>
+<div><b>Synthèse</b>cohérence avec l'occlusion et l'ASPECTS ; décision avec le neurologue vasculaire</div>
+</div>

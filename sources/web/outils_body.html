@@ -1,0 +1,190 @@
+<div class="w-fh" style="--oc:#1d2430"><div><span class="w-pill">Outils</span><h1>Calculateurs interactifs</h1><p>Aides au calcul reprenant les grilles des fiches, avec une phrase de compte rendu à copier. Elles ne remplacent ni la lecture complète des critères, ni la discussion multidisciplinaire.</p></div></div>
+<nav class="t-nav" aria-label="Calculateurs">
+<div class="t-navg" style="--oc:#5b3fa0"><span>Neuro</span><a href="#aspects">ASPECTS</a><a href="#pcaspects">PC-ASPECTS</a></div>
+<div class="t-navg" style="--oc:#0f7a8a"><span>Cou</span><a href="#eutirads">EU-TIRADS</a><a href="#tirads">ACR TI-RADS</a></div>
+<div class="t-navg" style="--oc:#1f5fa8"><span>Thorax</span><a href="#fleischner">Fleischner</a><a href="#lungrads">Lung-RADS</a></div>
+<div class="t-navg" style="--oc:#be123c"><span>Cœur</span><a href="#cadrads">CAD-RADS 2.0</a></div>
+<div class="t-navg" style="--oc:#0f6e6e"><span>Foie</span><a href="#lirads">LI-RADS CT/IRM</a></div>
+<div class="t-navg" style="--oc:#8b5e3c"><span>Rein</span><a href="#bosniak">Bosniak 2019</a></div>
+<div class="t-navg" style="--oc:#7a3b8f"><span>Pelvis</span><a href="#pirads">PI-RADS v2.1</a></div>
+<div class="t-navg" style="--oc:#3d6b12"><span>Ostéo</span><a href="#bonerads">Bone-RADS</a></div>
+</nav>
+
+<section class="t-box" id="aspects" style="--oc:#5b3fa0">
+<h2>Score ASPECTS</h2>
+<p>Scanner sans injection, territoire de l'artère cérébrale moyenne. Partir de 10 et retirer 1 point par région présentant un signe précoce d'ischémie (hypodensité ou perte de la différenciation substance grise-substance blanche). Cliquer sur une région du schéma ou sur son bouton. Voir la <a href="f/NE-01.html">fiche NE-01</a>.</p>
+<div class="t-grid"><div><div class="t-svg t-wide" id="asp-svg">{{ASPECTS_SVG}}</div>
+<div class="t-chiprow" id="asp-btns"></div>
+<p class="t-note">Schéma simplifié, non à l'échelle. Les deux coupes représentent un seul hémisphère : niveau des noyaux gris (C, L, IC, I, M1–M3) et niveau supra-ganglionnaire (M4–M6).</p>
+<fieldset class="t-q" style="margin-top:10px"><legend>Côté</legend><div class="t-opts" id="asp-side"><label><input type="radio" name="side" value="droit" checked>Hémisphère droit</label><label><input type="radio" name="side" value="gauche">Hémisphère gauche</label></div></fieldset></div>
+<div class="t-res" id="res-aspects"></div></div>
+</section>
+
+<section class="t-box" id="pcaspects" style="--oc:#5b3fa0">
+<h2>PC-ASPECTS · circulation postérieure</h2>
+<p>Partir de 10 et retirer les points des régions atteintes (hypodensité au scanner ou anomalie en diffusion). Voir la <a href="f/NE-01.html">fiche NE-01</a>.</p>
+<div class="t-grid"><form id="f-pcaspects">
+<fieldset class="t-q"><legend>Régions atteintes</legend><div class="t-opts">
+<label><input type="checkbox" name="r" value="1" data-n="thalamus droit">Thalamus droit<em>1</em></label><label><input type="checkbox" name="r" value="1" data-n="thalamus gauche">Thalamus gauche<em>1</em></label>
+<label><input type="checkbox" name="r" value="1" data-n="lobe occipital droit">Lobe occipital droit<em>1</em></label><label><input type="checkbox" name="r" value="1" data-n="lobe occipital gauche">Lobe occipital gauche<em>1</em></label>
+<label><input type="checkbox" name="r" value="2" data-n="mésencéphale">Mésencéphale<em>2</em></label><label><input type="checkbox" name="r" value="2" data-n="pont">Pont<em>2</em></label>
+<label><input type="checkbox" name="r" value="1" data-n="hémisphère cérébelleux droit">Cervelet droit<em>1</em></label><label><input type="checkbox" name="r" value="1" data-n="hémisphère cérébelleux gauche">Cervelet gauche<em>1</em></label></div></fieldset>
+</form><div class="t-res" id="res-pcaspects"></div></div>
+</section>
+
+<section class="t-box" id="eutirads" style="--oc:#0f7a8a">
+<h2>EU-TIRADS (ETA 2017, repris en 2023)</h2>
+<p>Système de référence en Europe. Un seul signe de haut risque suffit pour classer EU-TIRADS 5. Voir la <a href="f/CO-01.html">fiche CO-01</a>.</p>
+<div class="t-grid"><form id="f-eutirads">
+<fieldset class="t-q"><legend>Aspect bénin typique</legend><div class="t-opts">
+<label><input type="radio" name="ben" value="0" checked>Non</label><label><input type="radio" name="ben" value="1">Kyste pur ou nodule entièrement spongiforme</label></div></fieldset>
+<fieldset class="t-q eu-rest"><legend>Signes de haut risque</legend><div class="t-opts">
+<label><input type="checkbox" name="hr" data-n="forme non ovale">Forme non ovale (plus haut que large)</label><label><input type="checkbox" name="hr" data-n="contours irréguliers">Contours irréguliers</label><label><input type="checkbox" name="hr" data-n="microcalcifications">Microcalcifications</label><label><input type="checkbox" name="hr" data-n="hypoéchogénicité marquée">Hypoéchogénicité marquée</label></div></fieldset>
+<fieldset class="t-q eu-rest"><legend>Échogénicité de la portion solide</legend><div class="t-opts">
+<label><input type="radio" name="echo" value="iso" checked>Iso- ou hyperéchogène</label><label><input type="radio" name="echo" value="hypo">Modérément hypoéchogène</label></div></fieldset>
+<fieldset class="t-q"><legend>Plus grand diamètre</legend><div class="t-opts"><label><input type="number" name="size" min="0" max="120" value="14" class="t-num"> mm</label></div></fieldset>
+</form><div class="t-res" id="res-eutirads"></div></div>
+</section>
+
+<section class="t-box" id="tirads" style="--oc:#0f7a8a">
+<h2>ACR TI-RADS (2017)</h2>
+<p>Choisir un critère par catégorie (plusieurs pour les foyers échogènes) et indiquer le plus grand diamètre. Voir la <a href="f/CO-01.html">fiche CO-01</a>.</p>
+<div class="t-grid"><form id="f-tirads">
+<fieldset class="t-q"><legend>Composition</legend><div class="t-opts">
+<label><input type="radio" name="comp" value="0c">Kystique ou presque<em>0</em></label><label><input type="radio" name="comp" value="0s">Spongiforme<em>0</em></label><label><input type="radio" name="comp" value="1">Mixte kystique et solide<em>1</em></label><label><input type="radio" name="comp" value="2" checked>Solide ou presque<em>2</em></label></div></fieldset>
+<fieldset class="t-q" id="ti-rest"><legend>Échogénicité</legend><div class="t-opts">
+<label><input type="radio" name="echo" value="1" checked>Hyper- ou isoéchogène<em>1</em></label><label><input type="radio" name="echo" value="2">Hypoéchogène<em>2</em></label><label><input type="radio" name="echo" value="3">Très hypoéchogène<em>3</em></label></div>
+<legend class="t-sub">Forme</legend><div class="t-opts">
+<label><input type="radio" name="shape" value="0" checked>Plus large que haut<em>0</em></label><label><input type="radio" name="shape" value="3">Plus haut que large<em>3</em></label></div>
+<legend class="t-sub">Contours</legend><div class="t-opts">
+<label><input type="radio" name="marg" value="0" checked>Réguliers ou flous<em>0</em></label><label><input type="radio" name="marg" value="2">Lobulés ou irréguliers<em>2</em></label><label><input type="radio" name="marg" value="3">Extension extrathyroïdienne<em>3</em></label></div>
+<legend class="t-sub">Foyers échogènes</legend><div class="t-opts">
+<label><input type="checkbox" name="f1">Macrocalcifications<em>1</em></label><label><input type="checkbox" name="f2">Calcifications périphériques<em>2</em></label><label><input type="checkbox" name="f3">Foyers ponctiformes<em>3</em></label></div></fieldset>
+<fieldset class="t-q"><legend>Plus grand diamètre</legend><div class="t-opts"><label><input type="number" name="size" min="0" max="120" step="1" value="12" class="t-num"> mm</label></div></fieldset>
+</form><div class="t-res" id="res-tirads"></div></div>
+<p class="t-note">Kystique ou spongiforme : TR1 d'emblée, aucun autre point n'est ajouté. Composition mixte : coter l'échogénicité de la portion solide. Au plus 2 cytoponctions (les 2 scores les plus élevés) et 4 nodules suivis.</p>
+</section>
+
+<section class="t-box" id="fleischner" style="--oc:#1f5fa8">
+<h2>Fleischner 2017 · nodule pulmonaire fortuit</h2>
+<p>Adulte ≥ 35 ans, découverte fortuite au scanner. Non applicable au dépistage, au cancer connu ni à l'immunodépression. Taille = moyenne du grand et du petit axe. Voir la <a href="f/TH-01.html">fiche TH-01</a>.</p>
+<div class="t-grid"><form id="f-fleischner">
+<fieldset class="t-q"><legend>Type</legend><div class="t-opts">
+<label><input type="radio" name="type" value="solide" checked>Solide</label><label><input type="radio" name="type" value="vd">Verre dépoli pur</label><label><input type="radio" name="type" value="ps">Partiellement solide</label></div></fieldset>
+<fieldset class="t-q"><legend>Nombre</legend><div class="t-opts">
+<label><input type="radio" name="nb" value="1" checked>Unique</label><label><input type="radio" name="nb" value="n">Multiples</label></div></fieldset>
+<fieldset class="t-q fl-solid"><legend>Risque du patient</legend><div class="t-opts">
+<label><input type="radio" name="risk" value="bas" checked>Bas risque</label><label><input type="radio" name="risk" value="haut">Haut risque (tabac, âge, exposition, spiculations, lobe supérieur…)</label></div></fieldset>
+<fieldset class="t-q"><legend>Taille moyenne</legend><div class="t-opts"><label><input type="number" name="size" min="1" max="60" step="0.5" value="7" class="t-num"> mm</label></div></fieldset>
+<fieldset class="t-q fl-ps"><legend>Composante solide</legend><div class="t-opts"><label><input type="number" name="solid" min="0" max="60" step="0.5" value="3" class="t-num"> mm</label></div></fieldset>
+</form><div class="t-res" id="res-fleischner"></div></div>
+<p class="t-note">Pour le nodule solide, &lt; 6 mm correspond à &lt; 100 mm³, 6–8 mm à 100–250 mm³ et &gt; 8 mm à &gt; 250 mm³ en volumétrie.</p>
+</section>
+
+<section class="t-box" id="lungrads" style="--oc:#1f5fa8">
+<h2>Lung-RADS v2022 · dépistage par scanner faible dose</h2>
+<p>Diamètre moyen arrondi à 0,1 mm ; croissance = augmentation de plus de 1,5 mm en 12 mois. La catégorie finale suit le nodule le plus suspect. Voir la <a href="f/TH-02.html">fiche TH-02</a>.</p>
+<div class="t-grid"><form id="f-lungrads">
+<fieldset class="t-q"><legend>Situation particulière</legend><div class="t-opts">
+<label><input type="radio" name="pre" value="none" checked>Aucune</label><label><input type="radio" name="pre" value="0">Examen incomplet ou aspect infectieux</label><label><input type="radio" name="pre" value="1">Aucun nodule, ou calcification bénigne ou graisse</label><label><input type="radio" name="pre" value="jp">Nodule juxtapleural typique solide ≤ 10 mm</label></div></fieldset>
+<div id="lr-grid">
+<fieldset class="t-q"><legend>Type</legend><div class="t-opts">
+<label><input type="radio" name="type" value="s" checked>Solide</label><label><input type="radio" name="type" value="ps">Partiellement solide</label><label><input type="radio" name="type" value="vd">Verre dépoli</label></div></fieldset>
+<fieldset class="t-q"><legend>Statut</legend><div class="t-opts">
+<label><input type="radio" name="st" value="init" checked>Examen initial</label><label><input type="radio" name="st" value="new">Nouveau nodule</label><label><input type="radio" name="st" value="grow">Nodule en croissance</label></div></fieldset>
+<fieldset class="t-q"><legend>Diamètre moyen total</legend><div class="t-opts"><label><input type="number" name="size" min="0" max="80" step="0.1" value="9" class="t-num"> mm</label></div></fieldset>
+<fieldset class="t-q lr-ps"><legend>Composante solide</legend><div class="t-opts"><label><input type="number" name="solid" min="0" max="80" step="0.1" value="4" class="t-num"> mm</label></div></fieldset>
+<fieldset class="t-q"><legend>Modificateurs</legend><div class="t-opts">
+<label><input type="checkbox" name="x">Signe suspect supplémentaire (spiculations, adénopathie…)</label><label><input type="checkbox" name="s">Découverte significative non pulmonaire (S)</label></div></fieldset>
+</div></form><div class="t-res" id="res-lungrads"></div></div>
+<p class="t-note">Prise en charge par paliers : 4A stable à 3 mois → 3 ; 3 stable à 6 mois → 2. Kystes atypiques et nodules des voies aériennes : voir la fiche.</p>
+</section>
+
+<section class="t-box" id="cadrads" style="--oc:#be123c">
+<h2>CAD-RADS 2.0 · douleur thoracique stable</h2>
+<p>Une catégorie par patient, fondée sur la sténose la plus significative, complétée par les modificateurs et la charge plaquaire. Voir la <a href="f/CV-01.html">fiche CV-01</a>.</p>
+<div class="t-grid"><form id="f-cadrads">
+<fieldset class="t-q"><legend>Sténose maximale</legend><div class="t-opts">
+<label><input type="radio" name="st" value="0">0 %, ni plaque<em>0</em></label><label><input type="radio" name="st" value="1">1–24 % ou plaque sans sténose<em>1</em></label><label><input type="radio" name="st" value="2">25–49 %<em>2</em></label><label><input type="radio" name="st" value="3" checked>50–69 %<em>3</em></label><label><input type="radio" name="st" value="4">70–99 %<em>4</em></label><label><input type="radio" name="st" value="5">100 % (occlusion)<em>5</em></label></div></fieldset>
+<fieldset class="t-q"><legend>Atteinte étendue</legend><div class="t-opts"><label><input type="checkbox" name="b">Tronc commun ≥ 50 % ou tritronculaire ≥ 70 % (4B)</label></div></fieldset>
+<fieldset class="t-q"><legend>Signes de plaque à haut risque (HRP si ≥ 2)</legend><div class="t-opts">
+<label><input type="checkbox" name="hrp">Faible densité &lt; 30 UH</label><label><input type="checkbox" name="hrp">Remodelage positif ≥ 10 %</label><label><input type="checkbox" name="hrp">Calcifications ponctuées</label><label><input type="checkbox" name="hrp">Signe de l'anneau</label></div></fieldset>
+<fieldset class="t-q"><legend>Autres modificateurs</legend><div class="t-opts">
+<label><input type="checkbox" name="mN">N non diagnostique</label><label><input type="checkbox" name="mS">S stent</label><label><input type="checkbox" name="mG">G pontage</label><label><input type="checkbox" name="mE">E exception</label></div>
+<div class="t-opts" style="margin-top:6px"><label><input type="radio" name="isch" value="" checked>Ischémie non évaluée</label><label><input type="radio" name="isch" value="I+">I+</label><label><input type="radio" name="isch" value="I-">I−</label><label><input type="radio" name="isch" value="I±">I±</label></div></fieldset>
+<fieldset class="t-q"><legend>Charge plaquaire (score calcique)</legend><div class="t-opts"><label><input type="number" name="cac" min="0" max="10000" value="150" class="t-num"> unités Agatston</label></div></fieldset>
+</form><div class="t-res" id="res-cadrads"></div></div>
+<p class="t-note">Si le score calcique n'est pas disponible, la charge plaquaire peut être estimée par le nombre de segments atteints ou visuellement (voir la fiche) ; retenir l'évaluation la plus sévère.</p>
+</section>
+
+<section class="t-box" id="lirads" style="--oc:#0f6e6e">
+<h2>LI-RADS CT/IRM v2018</h2>
+<p>Patient à haut risque de carcinome hépatocellulaire. Écarter d'abord les catégories particulières, puis appliquer la grille des critères majeurs. Voir la <a href="f/FO-01.html">fiche FO-01</a>.</p>
+<div class="t-grid"><form id="f-lirads">
+<fieldset class="t-q"><legend>1. Écarter d'abord</legend><div class="t-opts">
+<label><input type="radio" name="pre" value="none" checked>Aucune de ces situations</label>
+<label><input type="radio" name="pre" value="NC">Non catégorisable (phase manquante ou dégradée)</label>
+<label><input type="radio" name="pre" value="TIV">Tumeur dans une veine</label>
+<label><input type="radio" name="pre" value="1">Certainement bénigne</label>
+<label><input type="radio" name="pre" value="2">Probablement bénigne</label>
+<label><input type="radio" name="pre" value="M">Maligne non spécifique (aspect en cible, infiltrant)</label></div></fieldset>
+<div id="li-grid">
+<fieldset class="t-q"><legend>2. APHE non périphérique</legend><div class="t-opts">
+<label><input type="radio" name="aphe" value="0" checked>Absent</label><label><input type="radio" name="aphe" value="1">Présent</label></div></fieldset>
+<fieldset class="t-q"><legend>3. Taille</legend><div class="t-opts">
+<label><input type="radio" name="sz" value="s">&lt; 10 mm</label><label><input type="radio" name="sz" value="m" checked>10–19 mm</label><label><input type="radio" name="sz" value="l">≥ 20 mm</label></div></fieldset>
+<fieldset class="t-q"><legend>4. Critères majeurs supplémentaires</legend><div class="t-opts">
+<label><input type="checkbox" name="wo">Wash-out non périphérique</label><label><input type="checkbox" name="cap">Capsule rehaussée</label><label><input type="checkbox" name="gr">Croissance seuil (≥ 50 % en ≤ 6 mois)</label></div></fieldset>
+<fieldset class="t-q"><legend>5. Critères accessoires (optionnels)</legend><div class="t-opts">
+<label><input type="checkbox" name="am">≥ 1 en faveur de la malignité</label><label><input type="checkbox" name="ab">≥ 1 en faveur de la bénignité</label></div></fieldset>
+</div></form><div class="t-res" id="res-lirads"></div></div>
+<p class="t-note">Règles : un doute sur un critère le fait considérer comme absent ; les critères accessoires ajustent d'au plus une catégorie et ne permettent jamais d'atteindre LR-5 ; en présence de critères dans les deux sens, pas d'ajustement.</p>
+</section>
+
+<section class="t-box" id="bosniak" style="--oc:#8b5e3c">
+<h2>Bosniak v2019 · masse kystique rénale</h2>
+<p>Scanner ou IRM avec protocole « masse rénale ». Choisir le critère le plus péjoratif présent. Une masse avec plus de 25 % de tissu rehaussé n'est pas un kyste. Voir la <a href="f/RS-01.html">fiche RS-01</a>.</p>
+<div class="t-grid"><form id="f-bosniak">
+<fieldset class="t-q"><legend>Critère le plus péjoratif</legend><div class="t-opts t-col">
+<label><input type="radio" name="c" value="IV">Nodule rehaussé : protrusion à bords obtus ≥ 4 mm, ou à bords aigus de toute taille</label>
+<label><input type="radio" name="c" value="III">Paroi ou cloison(s) épaisse(s) ≥ 4 mm ou irrégulière(s) (protrusion à bords obtus ≤ 3 mm), rehaussée(s)</label>
+<label><input type="radio" name="c" value="IIF" checked>Paroi lisse discrètement épaissie (3 mm), cloison(s) lisse(s) de 3 mm, ou ≥ 4 cloisons fines, rehaussées</label>
+<label><input type="radio" name="c" value="IIFm">IRM : kyste hétérogène hyperintense en T1 avec saturation de graisse</label>
+<label><input type="radio" name="c" value="II">1 à 3 cloisons fines, ou masse homogène correspondant à une des formes bénignes de classe II</label>
+<label><input type="radio" name="c" value="I">Paroi fine et lisse, liquide simple, ni cloison ni calcification</label></div></fieldset>
+</form><div class="t-res" id="res-bosniak"></div></div>
+<p class="t-note">Rehaussement : en scanner, ≥ 20 UH entre les phases sans et avec injection ; en IRM, rehaussement visible ou en soustraction. Kyste hémorragique ou infecté en phase aiguë : ne pas classer, contrôler.</p>
+</section>
+
+<section class="t-box" id="pirads" style="--oc:#7a3b8f">
+<h2>PI-RADS v2.1</h2>
+<p>La séquence dominante dépend de la zone : diffusion en zone périphérique (le DCE peut faire passer un 3 en 4), T2 en zone de transition (la diffusion peut ajuster d'un point). Voir la <a href="f/PE-01.html">fiche PE-01</a>.</p>
+<div class="t-grid"><form id="f-pirads">
+<fieldset class="t-q"><legend>Zone</legend><div class="t-opts">
+<label><input type="radio" name="z" value="ZP" checked>Zone périphérique</label><label><input type="radio" name="z" value="ZT">Zone de transition</label></div></fieldset>
+<fieldset class="t-q"><legend>Score T2</legend><div class="t-opts t-row5">
+<label><input type="radio" name="t2" value="1">1</label><label><input type="radio" name="t2" value="2">2</label><label><input type="radio" name="t2" value="3" checked>3</label><label><input type="radio" name="t2" value="4">4</label><label><input type="radio" name="t2" value="5">5</label></div></fieldset>
+<fieldset class="t-q"><legend>Score diffusion</legend><div class="t-opts t-row5">
+<label><input type="radio" name="dw" value="1">1</label><label><input type="radio" name="dw" value="2">2</label><label><input type="radio" name="dw" value="3" checked>3</label><label><input type="radio" name="dw" value="4">4</label><label><input type="radio" name="dw" value="5">5</label></div></fieldset>
+<fieldset class="t-q pi-dce"><legend>DCE</legend><div class="t-opts">
+<label><input type="radio" name="dce" value="-" checked>Négatif</label><label><input type="radio" name="dce" value="+">Positif</label><label><input type="radio" name="dce" value="x">Non réalisé (biparamétrique)</label></div></fieldset>
+</form><div class="t-res" id="res-pirads"></div></div>
+<p class="t-note">Biopsie ciblée en général à partir de 4 ; pour un 3, selon la densité de PSA (&gt; 0,15–0,20 ng/mL/cm³) et le contexte.</p>
+</section>
+
+<section class="t-box" id="bonerads" style="--oc:#3d6b12">
+<h2>Bone-RADS v2023 · lésion osseuse solitaire en radiographie</h2>
+<p>Lésion osseuse solitaire découverte en radiographie chez l'adulte. Additionner les points des critères. Voir la <a href="f/OS-01.html">fiche OS-01</a>.</p>
+<div class="t-grid"><form id="f-bonerads">
+<fieldset class="t-q"><legend>Marges (Lodwick)</legend><div class="t-opts">
+<label><input type="radio" name="mg" value="1" checked>IA géographique, bord scléreux<em>1</em></label><label><input type="radio" name="mg" value="3">IB géographique, bien limité, sans sclérose<em>3</em></label><label><input type="radio" name="mg" value="5">II géographique, mal limité<em>5</em></label><label><input type="radio" name="mg" value="7">III marges changeantes, mitées, perméatives ou invisibles<em>7</em></label></div></fieldset>
+<fieldset class="t-q"><legend>Réaction périostée</legend><div class="t-opts">
+<label><input type="radio" name="pr" value="0" checked>Aucune<em>0</em></label><label><input type="radio" name="pr" value="2">Non agressive<em>2</em></label><label><input type="radio" name="pr" value="4">Agressive (lamellée, spiculée, éperon de Codman)<em>4</em></label></div></fieldset>
+<fieldset class="t-q"><legend>Érosion endostée</legend><div class="t-opts">
+<label><input type="radio" name="en" value="0" checked>Légère ou absente<em>0</em></label><label><input type="radio" name="en" value="1">Modérée<em>1</em></label><label><input type="radio" name="en" value="2">Profonde<em>2</em></label></div></fieldset>
+<fieldset class="t-q"><legend>Autres critères</legend><div class="t-opts">
+<label><input type="checkbox" name="fx">Fracture pathologique<em>+2</em></label><label><input type="checkbox" name="pm">Masse des parties molles<em>+4</em></label><label><input type="checkbox" name="ca">Cancer primitif connu<em>+2</em></label></div></fieldset>
+</form><div class="t-res" id="res-bonerads"></div></div>
+<p class="t-note">Catégorie 0 (incomplet) si le risque n'est pas évaluable, par exemple lésion lytique du squelette axial : incidences supplémentaires ou imagerie en coupes.</p>
+</section>
+<p class="t-note">O-RADS n'a pas de calculateur : la classification repose sur un lexique descriptif étendu qui se prête mal à un formulaire court ; utiliser la <a href="f/PE-02.html">fiche PE-02</a>.</p>
