@@ -60,7 +60,7 @@ veille={
 "TR-01":("ESUR CMSC 2025","—"),
 "TR-02":("ACR–SPR 2023 · ESUR 2025","—"),
 "TR-03":("Node-RADS v1.0 (2021)","—"),
-"NE-01":("AHA/ASA 2026","Version actualisée signalée en mars 2026 : à vérifier"),
+"NE-01":("AHA/ASA 2026 (Stroke, janv. 2026)","Vérifiée le 30/10/2026 : fiche alignée sur le texte final (TNK 0,25 mg/kg, IVT 4,5–9 h sur pénombre, EVT mRS 2, créatinine)"),
 "NE-02":("McDonald 2024 (publié en 2025)","—"),
 "NE-03":("NICE NG232 (2023)","—"),
 "NE-04":("AHA/ASA 2026 · ESO 2021/2023 · ESO-ESMINT","Seuils ISP par défaut ≠ seuils des essais ; recommandations ESO sur la thrombectomie à suivre"),
