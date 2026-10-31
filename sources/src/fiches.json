@@ -239,10 +239,10 @@
   "oc": "#0f7a8a",
   "ol": "#eaf5f7",
   "pages": 1,
-  "plain": "Nodule thyroïdien – EU-TIRADS et ACR TI-RADS",
+  "plain": "Nodule thyroïdien – EU-TIRADS, ACR TI-RADS et lexique I-TIRADS",
   "title": "Nodule thyroïdien · <span>EU-TIRADS / ACR TI-RADS</span>",
-  "ref": "ETA 2023 · ACR TI-RADS 2017",
-  "sub": "échographie · indications de cytoponction",
+  "ref": "ETA 2023 · ACR TI-RADS 2017 · I-TIRADS 2023",
+  "sub": "échographie · indications de cytoponction · lexique I-TIRADS",
   "sources": [
    [
     "ETA 2023 Guidelines thyroid nodules",
@@ -255,6 +255,10 @@
    [
     "ACR TI-RADS",
     "https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Reporting-and-Data-Systems/TI-RADS"
+   ],
+   [
+    "I-TIRADS lexicon (Radiology 2023)",
+    "https://pubs.rsna.org/doi/10.1148/radiol.231481"
    ]
   ]
  },
@@ -342,7 +346,7 @@
   "plain": "Embolie pulmonaire",
   "title": "Embolie <span>pulmonaire</span>",
   "ref": "ESC/ERS 2019 · AHA/ACC 2026",
-  "sub": "probabilité clinique, D-dimères, angioscanner, grossesse, catégories A–E",
+  "sub": "probabilité clinique, D-dimères, angioscanner, grossesse, catégories A–E, suivi MCTEP",
   "sources": [
    [
     "2019 ESC/ERS Guidelines acute PE",
@@ -355,6 +359,10 @@
    [
     "2026 AHA/ACC multisociety PE guideline (Medscape)",
     "https://reference.medscape.com/cc2/p10/evaluation-and-management-acute-pulmonary-embolism-2026a1000n2c"
+   ],
+   [
+    "2026 AHA/ACC multisociety PE guideline",
+    "https://www.ahajournals.org/doi/10.1161/CIR.0000000000001415"
    ]
   ]
  },
