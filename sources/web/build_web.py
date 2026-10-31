@@ -5,7 +5,7 @@ S = f'{D}/src'; OUT = f'{D}/site'; W = f'{D}/web'
 meta = json.load(open(f'{S}/fiches.json'))
 order = ["Transversal","Neuro","ORL","Sein","Thorax","Cœur · vaisseaux","Foie","Pancréas","Tube digestif","Rein · surrénale","Pelvis","Ostéo-articulaire"]
 bsrc = open(f'{S}/binder.py').read()
-desc = ast.literal_eval(re.search(r'^desc=(\{.*?\})\s*$', bsrc, re.M).group(1))
+desc = ast.literal_eval(re.search(r'^desc=(\{.*?\})[^\S\n]*(?=\n)', bsrc, re.M).group(1))
 veille = ast.literal_eval(re.search(r'^veille=(\{.*?\n\})', bsrc, re.M | re.S).group(1))
 vdate_m = re.search(r'^vdate=(\{[^}]*\})', bsrc, re.M)
 vdate = ast.literal_eval(vdate_m.group(1)) if vdate_m else {}
@@ -104,7 +104,7 @@ def page(title, main, root='', cur=None, extra_head='', side=True, active=''):
 <button class="w-theme" type="button" aria-label="Changer de thème" title="Mode clair ou sombre (suit le réglage de l'appareil à l'ouverture)"></button><form class="w-search" action="{root}index.html" role="search"><input type="search" name="q" placeholder="Rechercher une fiche, un score, un signe…" aria-label="Rechercher"></form>
 </div></header>
 <div class="w-shell">{sidebar}<main class="w-main" id="contenu">{main}</main></div>
-<footer class="w-foot"><div>Aide-mémoire pour radiologues et internes. Ne remplace ni les recommandations originales, ni la discussion multidisciplinaire, ni le jugement clinique. Schémas simplifiés, non à l'échelle ; les images de référence sont consultables via les liens (Radiopaedia, sociétés savantes). Dernière vérification : 30 octobre 2026. <span id="w-offline" hidden>· Consultable hors ligne sur cet appareil après une première visite.</span></div></footer>
+<footer class="w-foot"><div>Aide-mémoire pour radiologues et internes. Ne remplace ni les recommandations originales, ni la discussion multidisciplinaire, ni le jugement clinique. Schémas simplifiés, non à l'échelle ; les images de référence sont consultables via les liens (Radiopaedia, sociétés savantes). Dernière vérification : 31 octobre 2026. <span id="w-offline" hidden>· Consultable hors ligne sur cet appareil après une première visite.</span></div></footer>
 <script src="{root}assets/app.js"></script></body></html>'''
 
 CODES = {m['code'] for m in fiches}
@@ -122,7 +122,7 @@ for i, m in enumerate(fiches):
         css = scope_css(st1, '.fx1') + '\n' + scope_css(st2, '.fx2')
         b1 = clean(b1); b2 = clean(b2)
         # pied de page unique : celui de la partie atlas
-        b1 = re.sub(r'<div class="foot">.*?</div>\s*$', '', b1.strip(), flags=re.S)
+        b1 = re.sub(r'<div class="foot">.*?</div>\s*\Z', '', b1.strip(), flags=re.S)
         content = f'<div class="fiche fx1">{b1}</div><div class="fiche fx2" style="--oc:#0f6e6e;--ol:#eef6f6">{b2}</div>'
         srcs = []
     else:
