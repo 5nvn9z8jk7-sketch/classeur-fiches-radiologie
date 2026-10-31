@@ -1,6 +1,6 @@
 <div class="w-fh" style="--oc:#1d2430"><div><span class="w-pill">Outils</span><h1>Calculateurs interactifs</h1><p>Aides au calcul reprenant les grilles des fiches, avec une phrase de compte rendu à copier. Elles ne remplacent ni la lecture complète des critères, ni la discussion multidisciplinaire.</p></div></div>
 <nav class="t-nav" aria-label="Calculateurs">
-<div class="t-navg" style="--oc:#5b3fa0"><span>Neuro</span><a href="#aspects">ASPECTS</a><a href="#pcaspects">PC-ASPECTS</a></div>
+<div class="t-navg" style="--oc:#5b3fa0"><span>Neuro</span><a href="#aspects">ASPECTS</a><a href="#pcaspects">PC-ASPECTS</a><a href="#avctt">AVC · IVT/EVT</a></div>
 <div class="t-navg" style="--oc:#0f7a8a"><span>Cou</span><a href="#eutirads">EU-TIRADS</a><a href="#tirads">ACR TI-RADS</a></div>
 <div class="t-navg" style="--oc:#1f5fa8"><span>Thorax</span><a href="#fleischner">Fleischner</a><a href="#lungrads">Lung-RADS</a></div>
 <div class="t-navg" style="--oc:#be123c"><span>Cœur</span><a href="#cadrads">CAD-RADS 2.0</a></div>
@@ -30,6 +30,32 @@
 <label><input type="checkbox" name="r" value="2" data-n="mésencéphale">Mésencéphale<em>2</em></label><label><input type="checkbox" name="r" value="2" data-n="pont">Pont<em>2</em></label>
 <label><input type="checkbox" name="r" value="1" data-n="hémisphère cérébelleux droit">Cervelet droit<em>1</em></label><label><input type="checkbox" name="r" value="1" data-n="hémisphère cérébelleux gauche">Cervelet gauche<em>1</em></label></div></fieldset>
 </form><div class="t-res" id="res-pcaspects"></div></div>
+</section>
+
+<section class="t-box" id="avctt" style="--oc:#5b3fa0">
+<h2>AVC ischémique aigu · thrombolyse, thrombectomie ou les deux</h2>
+<p>Les questions apparaissent au fur et à mesure : chaque réponse révèle l'étape suivante de l'algorithme AHA/ASA 2026. La perfusion n'est requise que pour la décision à 4,5–9 h (réveil) et 6–24 h. Voir les fiches <a href="f/NE-01.html">NE-01</a> (thrombolyse) et <a href="f/NE-04.html">NE-04</a> (perfusion).</p>
+<div class="t-grid"><form id="f-avctt">
+<fieldset class="t-q a-step" data-step="1"><legend>Étape 1 · Scanner sans injection : hémorragie intracrânienne ?</legend><div class="t-opts">
+<label><input type="radio" name="hem" value="0">Non</label><label><input type="radio" name="hem" value="1">Oui</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="2" style="display:none"><legend>Étape 2 · Heure du dernier contact normal</legend><div class="t-opts">
+<label><input type="radio" name="win" value="w45">&lt; 4,5 h</label><label><input type="radio" name="win" value="w9">4,5–9 h ou réveil</label><label><input type="radio" name="win" value="w24">9–24 h</label><label><input type="radio" name="win" value="wout">&gt; 24 h</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="3" style="display:none"><legend>Étape 3 · Angioscanner : occlusion proximale (ACI terminale ou M1) ?</legend><div class="t-opts">
+<label><input type="radio" name="occ" value="oui">Oui</label><label><input type="radio" name="occ" value="non">Non (distale, M2–M3, ou absente)</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="4" style="display:none"><legend>Étape 4 · mRS préalable</legend><div class="t-opts">
+<label><input type="radio" name="mrs" value="01">0–1</label><label><input type="radio" name="mrs" value="ge2">≥ 2</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="5" style="display:none"><legend>Étape 5 · ASPECTS</legend><div class="t-opts">
+<label><input type="radio" name="asp" value="ge6">≥ 6</label><label><input type="radio" name="asp" value="35">3–5</label><label><input type="radio" name="asp" value="02">0–2</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="6" style="display:none"><legend>Étape 6 · Perfusion (CTP) ou IRM — décision à 4,5–9 h ou 6–24 h</legend><div class="t-opts">
+<label>Cœur (mL) <input type="number" name="core" min="0" step="1" class="a-num"></label>
+<label>Pénombre (mL) <input type="number" name="pen" min="0" step="1" class="a-num"></label>
+<label>Ratio de mismatch <input type="number" name="ratio" min="0" step="0.1" class="a-num"></label></div>
+<div class="t-opts" style="margin-top:8px">
+<label><input type="radio" name="age" value="lt80">&lt; 80 ans</label><label><input type="radio" name="age" value="ge80">≥ 80 ans</label>
+<label><input type="radio" name="nih" value="lt10">NIHSS &lt; 10</label><label><input type="radio" name="nih" value="ge10">NIHSS 10–19</label><label><input type="radio" name="nih" value="ge20">NIHSS ≥ 20</label></div>
+<p class="t-note">Seuils des essais (RAPID : cœur = rCBF &lt; 30 % · hypoperfusion = Tmax &gt; 6 s). EXTEND (IVT) : cœur &lt; 70 mL · ratio &gt; 1,2 · mismatch &gt; 10 mL. DEFUSE 3 (EVT 6–16 h) : cœur &lt; 70 mL · ratio ≥ 1,8 · pénombre ≥ 15 mL. DAWN (EVT 6–24 h) : ≥ 80 ans + NIHSS ≥ 10 + cœur &lt; 21 mL · &lt; 80 ans + NIHSS ≥ 10 + cœur &lt; 31 mL · &lt; 80 ans + NIHSS ≥ 20 + cœur 31–51 mL.</p>
+</fieldset>
+</form><div class="t-res" id="res-avctt"></div></div>
 </section>
 
 <section class="t-box" id="eutirads" style="--oc:#0f7a8a">

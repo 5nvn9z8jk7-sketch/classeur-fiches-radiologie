@@ -189,3 +189,60 @@ bind('bonerads',(f)=>{const p=+f.get('mg')+ +f.get('pr')+ +f.get('en')+(f.get('f
  else r=['c5','4 · haut risque','Maligne jusqu\'à preuve du contraire : centre de référence, biopsie planifiée avec le chirurgien, bilan d\'extension.'];
  return {k:'Total',v:p+' pt'+(p>1?'s':''),cls:r[0],cat:'Bone-RADS '+r[1],cdt:r[2],ph:`Lésion osseuse solitaire : Bone-RADS ${r[1].split(' ·')[0]} (${p} points, v2023). ${r[2]}`}});
 })();
+
+// ---------- AVC aigu : thrombolyse / thrombectomie (questions progressives) ----------
+const fa=$('#f-avctt');
+if(fa){const steps=$$('.a-step',fa);
+ const num=v=>{const x=parseFloat(String(v==null?'':v).replace(',','.')); return isNaN(x)?null:x};
+ function upd(){const f=new FormData(fa);
+  const hem=f.get('hem'),win=f.get('win'),occ=f.get('occ'),mrs=f.get('mrs'),asp=f.get('asp'),age=f.get('age'),nih=f.get('nih');
+  const core=num(f.get('core')),pen=num(f.get('pen')),ratio=num(f.get('ratio'));
+  const hasCTP=core!=null||ratio!=null||pen!=null;
+  // révélation progressive des étapes
+  steps[1].style.display=hem==='0'?'':'none';
+  steps[2].style.display=win?'':'none';
+  steps[3].style.display=(occ&&win!=='wout')?'':'none';
+  steps[4].style.display=(mrs==='01'&&win!=='wout')?'':'none';
+  steps[5].style.display=((win==='w9'&&hem==='0')||(win==='w24'&&mrs==='01'&&asp&&asp!=='02'))?'':'none';
+  let r;
+  if(hem==='1'){r={k:'Décision',cls:'c5',cat:'Hémorragie intracrânienne',cdt:'Ni thrombolyse ni thrombectomie.',why:'Contrôle de la pression artérielle, bilan de coagulation ; avis neurochirurgical selon le volume et la localisation (fiche NE-01).',ph:'Scanner sans injection : hémorragie intracrânienne. Pas d\'indication de thrombolyse ni de thrombectomie.'};}
+  else if(!hem||!win){r={k:'Décision',cls:'c0',cat:'Répondre aux étapes',why:'Les questions apparaissent au fur et à mesure des réponses.',cdt:'Commencer par l\'absence d\'hémorragie puis l\'heure du dernier contact normal.',ph:' '};}
+  else{
+   // voie thrombolyse
+   let ivt;
+   if(win==='w45') ivt={ok:1,t:'IVT immédiate',d:'TNK 0,25 mg/kg (max 25 mg) ou altéplase 0,9 mg/kg — sans attendre l\'imagerie avancée (CTP inutile)'};
+   else if(win==='w9'){ if(hasCTP){const ext=(core!=null?core<70:true)&&(ratio!=null?ratio>1.2:true)&&(pen!=null?pen>10:true)&&(core!=null||ratio!=null||pen!=null);
+     ivt=ext?{ok:1,t:'IVT raisonnable (profil EXTEND)',d:'cœur < 70 mL · ratio > 1,2 · mismatch > 10 mL'}:{ok:0,t:'Pas d\'IVT (hors profil EXTEND)',d:'cœur ≥ 70 mL, ratio ≤ 1,2 ou mismatch ≤ 10 mL'};}
+    else ivt={pend:1,t:'IVT : CTP ou IRM nécessaire',d:'EXTEND : cœur < 70 mL · ratio > 1,2 · mismatch > 10 mL (ou mismatch FLAIR–DWI à l\'IRM)'};}
+   else if(win==='w24') ivt={ok:0,t:'Pas d\'IVT',d:'9–24 h : classe 2b (LVO + tissu sauvable sans option d\'EVT, cas marginal) seulement'};
+   else ivt={ok:0,t:'Pas d\'IVT',d:'hors fenêtre thérapeutique (> 24 h)'};
+   // voie thrombectomie
+   let evt;
+   if(occ==='non') evt={ok:0,t:'Pas d\'EVT systématique',d:'occlusion distale (M2 non dominante, M3, ACA, ACP) ou absente — ESCAPE-MeVo et DISTAL négatifs'};
+   else if(win==='wout') evt={ok:0,t:'Pas d\'EVT',d:'hors fenêtre thérapeutique (> 24 h)'};
+   else if(mrs==='ge2') evt={ok:0,t:'Pas d\'EVT',d:'mRS préalable ≥ 2'};
+   else if(!asp) evt={pend:1,t:'EVT : ASPECTS à préciser',d:''};
+   else if(win==='w45'){ if(asp!=='02') evt={ok:1,t:'EVT recommandée (0–6 h, classe 1 A)',d:'ASPECTS 3–10 · NIHSS ≥ 6 · CTP inutile, ne pas retarder'};
+    else evt={ok:0,t:'EVT : cas très sélectionnés',d:'ASPECTS 0–2'};}
+   else{ // w9 (4,5–9) ou w24 (9–24) : fenêtre étendue
+    if(asp==='ge6'){ let det='ASPECTS ≥ 6 · classe 1 A · CTP ou IRM requise (profils DAWN / DEFUSE 3)';
+     if(hasCTP&&core!=null){const defuse=core<70&&ratio!=null&&ratio>=1.8&&pen!=null&&pen>=15;
+      const dawn=(age==='ge80'&&nih!=='lt10'&&nih&&core<21)||(age==='lt80'&&((nih==='ge10'&&core<31)||(nih==='ge20'&&core>=31&&core<=51)));
+      det+=defuse?' · profil DEFUSE 3 ✓':(dawn?' · profil DAWN ✓':' · CTP non concluante : décision avec le neurologue et le PERT');}
+     evt={ok:1,t:'EVT recommandée ('+(win==='w9'?'4,5–9 h':'6–24 h')+', classe 1 A)',d:det};}
+    else if(asp==='35'){ if(age==='lt80') evt={ok:1,t:'EVT chez des patients sélectionnés',d:'ASPECTS 3–5 · < 80 ans · pas d\'effet de masse · un cœur > 70 mL n\'exclut plus seul'};
+     else if(age==='ge80') evt={ok:0,t:'EVT : très sélectionnée',d:'ASPECTS 3–5 et ≥ 80 ans : profil DAWN uniquement (cœur < 21 mL, NIHSS ≥ 10)'};
+     else evt={pend:1,t:'EVT : âge à préciser (profil cœur étendu)',d:'ASPECTS 3–5 : EVT si < 80 ans sans effet de masse'};}
+    else evt={ok:0,t:'Pas d\'EVT',d:'ASPECTS 0–2 en fenêtre étendue'};}
+   // synthèse
+   const iv=ivt?(ivt.ok?'IVT ✓':(ivt.pend?'IVT ?':'IVT ✗')):'';
+   const ev=evt?(evt.ok?'EVT ✓':(evt.pend?'EVT ?':'EVT ✗')):'';
+   const cls=(ivt&&ivt.ok&&(!evt||evt.ok))?'c1':((ivt&&ivt.ok)||(evt&&evt.ok))?'c2':'c5';
+   const bridging=(ivt&&ivt.ok&&evt&&evt.ok)?' Éligible aux deux = les deux : l\'IVT part sans attendre et ne retarde jamais l\'EVT.':'';
+   r={k:'Décision',v:[iv,ev].filter(Boolean).join(' · '),cls,cat:[ivt&&ivt.t,evt&&evt.t].filter(Boolean).filter(t=>t).join(' · '),
+    why:'Fenêtre : '+(win==='w45'?'< 4,5 h':win==='w9'?'4,5–9 h ou réveil':win==='w24'?'9–24 h':'> 24 h')+(occ?' · occlusion proximale : '+(occ==='oui'?'oui':'non'):'')+(asp?' · ASPECTS '+(asp==='ge6'?'≥ 6':asp==='35'?'3–5':'0–2'):'')+'.',
+    cdt:[ivt&&ivt.d,evt&&evt.d].filter(Boolean).filter(d=>d).join(' — ')+bridging+' Cohérence finale avec la clinique et le neurologue (PERT si catégorie C–E).',
+    ph:'AVC ischémique aigu : '+(win==='w45'?'dernier contact normal < 4,5 h':win==='w9'?'dernier contact normal 4,5–9 h ou réveil':win==='w24'?'dernier contact normal 9–24 h':'dernier contact normal > 24 h')+(occ==='oui'?', occlusion proximale (ACI/M1)':occ==='non'?', pas d\'occlusion proximale':'')+(asp?', ASPECTS '+(asp==='ge6'?'≥ 6':asp==='35'?'3–5':'0–2'):'')+(mrs==='01'?', mRS préalable 0–1':'')+'. Décision : '+[ivt&&ivt.t,evt&&evt.t].filter(Boolean).filter(t=>t).join(' ; ')+'. '+((ivt&&ivt.ok&&evt&&evt.ok)?'Bridging : IVT sans attendre puis thrombectomie.':'')};
+  }
+  render('avctt',r);}
+ fa.addEventListener('input',upd); fa.addEventListener('change',upd); upd();}
