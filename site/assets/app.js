@@ -188,8 +188,6 @@ bind('bonerads',(f)=>{const p=+f.get('mg')+ +f.get('pr')+ +f.get('en')+(f.get('f
  else if(p<=6)r=['c3','3 · risque intermédiaire','Avis d\'orthopédie oncologique pour biopsie probable ; scanner, IRM ou scintigraphie.'];
  else r=['c5','4 · haut risque','Maligne jusqu\'à preuve du contraire : centre de référence, biopsie planifiée avec le chirurgien, bilan d\'extension.'];
  return {k:'Total',v:p+' pt'+(p>1?'s':''),cls:r[0],cat:'Bone-RADS '+r[1],cdt:r[2],ph:`Lésion osseuse solitaire : Bone-RADS ${r[1].split(' ·')[0]} (${p} points, v2023). ${r[2]}`}});
-})();
-
 // ---------- AVC aigu : thrombolyse / thrombectomie (questions progressives) ----------
 const fa=$('#f-avctt');
 if(fa){const steps=$$('.a-step',fa);
@@ -246,3 +244,5 @@ if(fa){const steps=$$('.a-step',fa);
   }
   render('avctt',r);}
  fa.addEventListener('input',upd); fa.addEventListener('change',upd); upd();}
+
+})();
