@@ -245,4 +245,38 @@ if(fa){const steps=$$('.a-step',fa);
   render('avctt',r);}
  fa.addEventListener('input',upd); fa.addEventListener('change',upd); upd();}
 
+// ---------- Coroscanner : préparation ralentisseur + trinitrine (questions progressives) ----------
+const fp=$('#f-coroprep');
+if(fp){const stepsP=$$('.a-step',fp);
+ function updP(){const f=new FormData(fp);
+  const fc=f.get('fc'),cibb=f.get('cibb'),cible=f.get('cible'),alt=f.get('alt');
+  const ci=f.getAll('citng').filter(v=>v!=='none');
+  const noTng=ci.length>0;
+  stepsP[1].style.display=fc==='ge65'?'':'none';
+  stepsP[2].style.display=(fc==='ge65'&&cibb==='non')?'':'none';
+  stepsP[3].style.display=(fc==='ge65'&&cibb==='oui')?'':'none';
+  stepsP[4].style.display=fc?'':'none';
+  const CITXT={pde5:'PDE5 récent (sildénafil/vardénafil < 24 h, tadalafil < 48 h)',pa:'PAS < 90–100 mmHg',sa:'sténose aortique sévère ou HCM',hyp:'hypovolémie ou choc'};
+  let r;
+  if(!fc){r={k:'Préparation',cls:'c0',cat:'Répondre aux étapes',why:'Les questions apparaissent au fur et à mesure des réponses.',cdt:'Commencer par la fréquence cardiaque au repos ( idéalement après inspiration).',ph:' '};}
+  else{
+   let bb,acq='acquisition prospective (basse dose) si la FC reste basse et régulière';
+   if(fc==='lt65') bb={t:'Pas de ralentisseur requis',d:'FC < 65/min ; une petite dose de bêtabloquant reste possible pour réduire la variabilité de FC et permettre le prospectif.'};
+   else if(cibb==='non'&&cible==='oui') bb={t:'Métoprolol per os suffisant',d:'Cible < 60/min atteinte ~1 h après 50–100 mg per os (aténolol si insuffisance hépatique).'};
+   else if(cibb==='non'&&cible==='non'){bb={t:'Relais IV en salle de scanner',d:'Métoprolol IV lent par paliers de 5 mg sous monitorage PA/FC ; si la cible n\'est pas atteinte, basculer en rétrospectif multi-phase (dose plus élevée, mais rattrapage possible dans une autre phase du cycle).'};acq='acquisition rétrospective multi-phase si la cible n\'est pas atteinte';}
+   else if(cibb==='oui'&&alt==='iva') bb={t:'Ivabradine',d:'Ralentisseur sinusal pur, sans effet sur la conduction ni la PA — hors AMM, phase investigationnelle (SCCT 2016).'};
+   else if(cibb==='oui'&&alt==='dil') bb={t:'Diltiazem',d:'Alternative si pas de trouble conductif ; surveiller PA et FC.'};
+   else if(cibb==='oui'&&alt==='aucun'){bb={t:'Aucun ralentisseur possible',d:'FC non contrôlée : acquisition rétrospective multi-phase d\'emblée (dose plus élevée). Lecture prudente : artefacts de mouvement attendus, surtout IVA distale et CX.'};acq='acquisition rétrospective multi-phase d\'emblée';}
+   else bb={t:'Ralentisseur à préciser',d:'Répondre à l\'étape en cours : cible atteinte après métoprolol per os, ou alternative retenue en cas de contre-indication.'};
+   const tng=noTng?{t:'Trinitrine contre-indiquée',d:'Pas de TNG ('+ci.map(v=>CITXT[v]).join(', ')+'). Réserve de lecture : lumière sous-estimée, sténoses surévaluées.'}:{t:'Trinitrine 0,4 mg sublinguale',d:'Administrer 3–5 min avant l\'acquisition (vasodilatation : sans nitrates, la lumière est sous-estimée et les sténoses surévaluées).'};
+   const done=(fc==='lt65')||(cibb==='non'&&cible)||(cibb==='oui'&&alt);
+   const cls=!done?'c0':(noTng?'c2':'c1');
+   r={k:'Préparation',cls,cat:bb.t+' · '+tng.t,
+    why:'FC '+(fc==='ge65'?'≥ 65/min':'< 65/min')+(cibb?' · contre-indication au bêtabloquant : '+(cibb==='oui'?'oui':'non'):'')+(cible?' · cible < 60/min atteinte : '+(cible==='oui'?'oui':'non'):'')+(alt?' · alternative : '+(alt==='iva'?'ivabradine':alt==='dil'?'diltiazem':'aucune'):'')+(noTng?' · CI trinitrine : '+ci.map(v=>CITXT[v]).join(', '):'')+'.',
+    cdt:bb.d+' '+tng.d+' '+acq+'. Cohérence finale avec la clinique et les protocoles du service.',
+    ph:'Préparation coroscanner : FC '+(fc==='ge65'?'≥ 65/min':'< 65/min')+' — '+bb.t.toLowerCase()+' ; trinitrine '+(noTng?'non administrée ('+ci.map(v=>CITXT[v]).join(', ')+')':'0,4 mg sublinguale 3–5 min avant l\'acquisition')+'.'};
+  }
+  render('coroprep',r);}
+ fp.addEventListener('input',updP); fp.addEventListener('change',updP); updP();}
+
 })();
