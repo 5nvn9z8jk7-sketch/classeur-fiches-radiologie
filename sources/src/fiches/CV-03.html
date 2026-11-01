@@ -1,0 +1,66 @@
+<h2>Avant de lire · les 5 portes qualité</h2>
+<div class="rules" style="--n:5">
+<div><b>Fréquence cardiaque</b>&lt; 65/min (idéalement &lt; 60) : bêtabloquant per os puis IV si besoin — au-delà, artefacts de mouvement</div>
+<div><b>Opacification</b>racine aortique <b>250–350 UH</b> (SCCT : &gt; 250 UH) ; &lt; 250 UH = fiabilité limitée des sténoses fines</div>
+<div><b>Artefacts</b>mouvement, stair-step, rings de métal : comparer plusieurs phases du cycle avant de conclure</div>
+<div><b>Fenêtres</b>plaques : largeur <b>600–800</b>, niveau <b>150–200</b> UH — une fenêtre étroite surestime la calcification</div>
+<div><b>Trinitrine</b>administrée avant l'acquisition (vasodilatation) : absence de nitrates = sous-estimation de la lumière</div>
+</div>
+<h2>Pas à pas · Cardiac CT Viewer (IntelliSpace Portal 12)</h2>
+<table class="tb"><tr><th style="width:4%">#</th><th style="width:22%">Étape</th><th>Ce qu'il faut vérifier</th></tr>
+<tr><td>1</td><td><b>Charger la série</b></td><td>Série ECG-gated en diastole (75 % du R-R en prospectif) ; appliquer les reconstructions de phases si rétrospectif</td></tr>
+<tr><td>2</td><td><b>Extraction coronaire</b></td><td>L'application extrait les centrelines et étiquette les artères (probabilité vasculaire) : <b>vérifier chaque ostium</b> avant toute lecture</td></tr>
+<tr><td>3</td><td><b>Éditeur de centerline</b></td><td>Étape critique : rediriger une centerline déviée (tortuosité, paroi), en ajouter (bypass, collatérale, naissance aberrante), supprimer les faux positifs (veines cardiaques, cross-over)</td></tr>
+<tr><td>4</td><td><b>Lecture le long de la centerline</b></td><td>CPR incurvé + <b>coupes axiales perpendiculaires</b> (cross-sections) : la sténose se juge sur la coupe, jamais sur la CPR seule</td></tr>
+<tr><td>5</td><td><b>Quantifier la sténose</b></td><td>Diamètre de référence sain (proximal <b>et</b> distal) vs diamètre minimal : le % de sténose en diamètre est calculé automatiquement (quotient de deux longueurs)</td></tr>
+<tr><td>6</td><td><b>Plaques</b></td><td>Composition et densités ; volumétrie plaquaire régionale et globale (mm³) par vaisseau</td></tr>
+<tr><td>7</td><td><b>Fonction VG (CCA)</b></td><td>Si application Comprehensive Cardiac Analysis : segmentation 3D du cœur → EDV, ESV, <b>FEVG</b>, épaisseurs pariétales, volume d'éjection</td></tr>
+<tr><td>8</td><td><b>CAD-RADS</b></td><td>Score intégré au workflow (ISP 12) ; export des snapshots et du rapport — voir la fiche CV-01 pour les catégories</td></tr>
+</table>
+<div class="sm mute" style="margin-top:3px">Chaque segment est classé : normal · plaque sans retentissement · sténose en % · non évaluable (N).</div>
+<h2>Les 16 segments · modèle SCCT/AHA</h2>
+<table class="tb"><tr><th>Artère</th><th>Segments</th><th>Repères</th></tr>
+<tr><td><b>Coronaire gauche (CDG)</b></td><td>5</td><td>0–10 mm en règle ; trifurcation possible (ramus intermédiaire = segment 16)</td></tr>
+<tr><td><b>IVA</b></td><td>6 prox · 7 moyen · 8 distal</td><td>diagonales D1 (9), D2 (10)</td></tr>
+<tr><td><b>CD (droite)</b></td><td>1 prox · 2 moyen · 3 distal</td><td>IVA postérieure (IVP) = 4 si dominance droite</td></tr>
+<tr><td><b>CX</b></td><td>11 prox · 13 distal</td><td>marginale OM1 (12), OM2 (14) ; postéro-latérale (15) selon dominance</td></tr></table>
+<h2>Ce que l'on recherche · sténose et plaques</h2>
+<div class="g2">
+<div class="c"><h3>Sténose (diamètre)</h3><ul>
+<li><span class="ch r1">&lt; 25 %</span> normale ou paroi épaissie sans retentissement</li>
+<li><span class="ch r3">25–49 %</span> non obstructive — CAD-RADS 2</li>
+<li><span class="ch r4">50–69 %</span> obstructive — CAD-RADS 3</li>
+<li><span class="ch r5">70–99 %</span> haute grade — CAD-RADS 4A</li>
+<li><span class="ch r5">100 %</span> occlusion — CAD-RADS 5 ; chercher les collatérales et la reprise distale</li>
+<li><b>% = (référence − minimal) / référence</b> ; une sténose ostiale CDG ≥ 50 % = CAD-RADS 4B d'emblée</li></ul></div>
+<div class="c"><h3>Plaque à haut risque (modificateur HRP)</h3><ul>
+<li><b>Noyau hypodense &lt; 30 UH</b> (low-attenuation plaque) : le plus prédictif d'événement</li>
+<li><b>Remodeling positif</b> : index de remodeling &gt; 1,1 (aire du vaisseau à la lésion / aire de référence)</li>
+<li><b>Calcifications punctiformes</b> &lt; 3 mm au sein d'une plaque non calcifiée</li>
+<li><b>Signe du napkin ring</b> : noyau hypodense cerclé d'un liseré hyperdense (&lt; 130 UH)</li>
+<li>Composition : <b>calcifiée</b> (&gt; 130 UH), <b>mixte</b>, <b>non calcifiée</b> (fibreuse 60–130 UH, lipidique &lt; 30–60 UH)</li></ul></div>
+</div>
+<h2>Valeurs normales · repères pour chaque mesure</h2>
+<table class="tb"><tr><th style="width:30%">Mesure</th><th style="width:30%">Normale</th><th>Remarque</th></tr>
+<tr><td><b>Diamètre de la lumière</b></td><td>CDG 4,5 ± 0,5 mm · IVA proximale 3,7 ± 0,4 · CX 3–3,5 · CD 3,7 ± 0,5</td><td>Diminution <b>progressive</b> vers le distal ; une discontinuité = sténose jusqu'à preuve du contraire</td></tr>
+<tr><td><b>Paroi coronaire</b></td><td>0,5–1 mm</td><td>&gt; 1,5–2 mm = plaque ; « remodeling » : le vaisseau peut s'élargir en gardant une lumière normale</td></tr>
+<tr><td><b>Opacification luminale</b></td><td>250–350 UH (lumen)</td><td>Seuil Agatston 130 UH et ≥ 1 mm² pour la calcification</td></tr>
+<tr><td><b>Index de remodeling</b></td><td>≤ 1</td><td>&gt; 1,05–1,1 = remodeling positif</td></tr>
+<tr><td><b>FEVG (CCA)</b></td><td>≥ 55 % (55–70 %)</td><td>Volumes indexés normaux : EDV ≈ 35–75 mL/m² ; ESV ≈ 12–30 mL/m²</td></tr>
+<tr><td><b>Paroi du VG en diastole</b></td><td>8–12 mm (base), 4–5 mm à l'apex</td><td>&gt; 12 mm = hypertrophie ; &lt; 8 mm = dilatation</td></tr>
+<tr><td><b>Racine aortique</b></td><td>Sinus &lt; 40 mm</td><td>À mesurer en systole, plan des sigmoides, perpendiculaire à l'axe</td></tr>
+</table>
+<h2>Pièges · ne pas surestimer une sténose</h2>
+<div class="g3">
+<div class="c"><h3>Artéfacts</h3><ul><li><b>Blooming calcique</b> : la calcification « déborde » et surestime la sténose — coupe perpendiculaire, fenêtre large, et classer <b>N</b> (non évaluable) si calcifications massives</li><li>Mouvement et stair-step : relire une autre phase avant de conclure</li><li>Scores calciques élevés : la valeur prédictive du coroscanner diminue</li></ul></div>
+<div class="c"><h3>Fausse sténose</h3><ul><li><b>CPR non centrée</b> : la ligne dérive dans la paroi → pseudo-sténose ou pseudo-fenestration</li><li><b>IVA tortueuse</b> : kinking sur la CPR ; toujours contrôler sur les coupes natives</li><li>Naissements hauts ou bouches jumelées : repérer avant d'étiqueter « occlusion ostiale »</li></ul></div>
+<div class="c"><h3>Confusions</h3><ul><li><b>Veine cardiaque moyenne</b> ou sinus coronaire pris pour une artère</li><li>Petite artère non opacifiée ≠ occlusion (vérifier le temps de transit)</li><li>Dominance gauche : l'IVP naît de la CX — ne pas la compter deux fois</li></ul></div>
+</div>
+<h2>Compte rendu</h2>
+<div class="rules" style="--n:4">
+<div><b>Dominance</b>droite (≈ 85 %), gauche, codominance ; naissance et trajet : normale ou variante (bénigne / à risque : interartérielle CDG, ostium à valvule)</div>
+<div><b>Segment par segment</b>modèle 16 : normal, plaque, sténose maximale en %, non évaluable</div>
+<div><b>Synthèse</b>sténose max par vaisseau + plaques à haut risque + FEVG + score calcique (fiche CV-02) + CAD-RADS avec modificateurs (N, S, HRP)</div>
+<div><b>Extra-cardiaque</b>poumons, médiastin, aorte, œsophage, parenchymes — jamais une lecture coronaire seule</div>
+</div>
+<div class="sm mute" style="margin-top:3px">Voir aussi les fiches CV-01 (CAD-RADS 2.0) et CV-02 (score calcique Agatston).</div>
