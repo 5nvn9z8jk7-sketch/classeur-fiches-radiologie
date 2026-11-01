@@ -3,7 +3,7 @@
 <div class="t-navg" style="--oc:#5b3fa0"><span>Neuro</span><a href="#aspects">ASPECTS</a><a href="#pcaspects">PC-ASPECTS</a><a href="#avctt">AVC · IVT/EVT</a></div>
 <div class="t-navg" style="--oc:#0f7a8a"><span>Cou</span><a href="#eutirads">EU-TIRADS</a><a href="#tirads">ACR TI-RADS</a></div>
 <div class="t-navg" style="--oc:#1f5fa8"><span>Thorax</span><a href="#fleischner">Fleischner</a><a href="#lungrads">Lung-RADS</a></div>
-<div class="t-navg" style="--oc:#be123c"><span>Cœur</span><a href="#cadrads">CAD-RADS 2.0</a></div>
+<div class="t-navg" style="--oc:#be123c"><span>Cœur</span><a href="#cadrads">CAD-RADS 2.0</a><a href="#coroprep">Préparation coro</a></div>
 <div class="t-navg" style="--oc:#0f6e6e"><span>Foie</span><a href="#lirads">LI-RADS CT/IRM</a></div>
 <div class="t-navg" style="--oc:#8b5e3c"><span>Rein</span><a href="#bosniak">Bosniak 2019</a></div>
 <div class="t-navg" style="--oc:#7a3b8f"><span>Pelvis</span><a href="#pirads">PI-RADS v2.1</a></div>
@@ -56,6 +56,25 @@
 <p class="t-note">Seuils des essais (RAPID : cœur = rCBF &lt; 30 % · hypoperfusion = Tmax &gt; 6 s). EXTEND (IVT) : cœur &lt; 70 mL · ratio &gt; 1,2 · mismatch &gt; 10 mL. DEFUSE 3 (EVT 6–16 h) : cœur &lt; 70 mL · ratio ≥ 1,8 · pénombre ≥ 15 mL. DAWN (EVT 6–24 h) : ≥ 80 ans + NIHSS ≥ 10 + cœur &lt; 21 mL · &lt; 80 ans + NIHSS ≥ 10 + cœur &lt; 31 mL · &lt; 80 ans + NIHSS ≥ 20 + cœur 31–51 mL.</p>
 </fieldset>
 </form><div class="t-res" id="res-avctt"></div></div>
+</section>
+
+<section class="t-box" id="coroprep" style="--oc:#be123c">
+<h2>Coroscanner · préparation (ralentisseur + trinitrine)</h2>
+<p>Les questions apparaissent au fur et à mesure, selon les guidelines SCCT 2016 (Abbara et al.) : cible FC ≤ 60/min, métoprolol oral ~1 h avant puis relais IV, alternatives si contre-indication. Voir la <a href="f/CV-03.html">fiche CV-03</a>.</p>
+<div class="t-grid"><form id="f-coroprep">
+<fieldset class="t-q a-step" data-step="1"><legend>Étape 1 · Fréquence cardiaque au repos ≥ 65/min ?</legend><div class="t-opts">
+<label><input type="radio" name="fc" value="ge65">Oui</label><label><input type="radio" name="fc" value="lt65">Non</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="2" style="display:none"><legend>Étape 2 · Contre-indication au bêtabloquant ?</legend><div class="t-opts">
+<label><input type="radio" name="cibb" value="non">Non</label><label><input type="radio" name="cibb" value="oui">Oui — asthme actif, FC &lt; 60 ou BAV, PAS &lt; 100 mmHg, IC décompensée, choc</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="3" style="display:none"><legend>Étape 3 · Cible &lt; 60/min atteinte ~1 h après métoprolol per os ?</legend><div class="t-opts">
+<label><input type="radio" name="cible" value="oui">Oui</label><label><input type="radio" name="cible" value="non">Non — relais IV en salle de scanner</label></div>
+<p class="t-note">Métoprolol per os 50–100 mg ~1 h avant (aténolol si insuffisance hépatique) ; patient déjà sous bêtabloquant au long cours : poursuivre, ne pas surdoser.</p></fieldset>
+<fieldset class="t-q a-step" data-step="4" style="display:none"><legend>Étape 3 · Alternative si contre-indication ?</legend><div class="t-opts">
+<label><input type="radio" name="alt" value="iva">Ivabradine</label><label><input type="radio" name="alt" value="dil">Diltiazem (si pas de trouble conductif)</label><label><input type="radio" name="alt" value="aucun">Aucun → rétrospectif multi-phase</label></div>
+<p class="t-note">Ivabradine : ralentisseur sinusal pur, sans effet sur la conduction ni la PA — hors AMM, phase investigationnelle (SCCT 2016).</p></fieldset>
+<fieldset class="t-q a-step" data-step="5" style="display:none"><legend>Étape 4 · Trinitrine : contre-indication présente ?</legend><div class="t-opts">
+<label><input type="checkbox" name="citng" value="pde5">PDE5 récent (sildénafil/vardénafil &lt; 24 h, tadalafil &lt; 48 h)</label><label><input type="checkbox" name="citng" value="pa">PAS &lt; 90–100 mmHg</label><label><input type="checkbox" name="citng" value="sa">Sténose aortique sévère ou HCM</label><label><input type="checkbox" name="citng" value="hyp">Hypovolémie / choc</label><label><input type="checkbox" name="citng" value="none">Aucune</label></div></fieldset>
+</form><div class="t-res" id="res-coroprep"></div></div>
 </section>
 
 <section class="t-box" id="eutirads" style="--oc:#0f7a8a">
