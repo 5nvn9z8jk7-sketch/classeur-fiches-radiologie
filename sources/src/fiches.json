@@ -313,6 +313,10 @@
    [
     "Radiopaedia – Fleischner 2017",
     "https://radiopaedia.org/articles/fleischner-society-pulmonary-nodule-recommendations-1?lang=us"
+   ],
+   [
+    "ACR AC Indolent Lung Cancer 2026 (PubMed)",
+    "https://pubmed.ncbi.nlm.nih.gov/42573542/"
    ]
   ]
  },
@@ -324,7 +328,7 @@
   "pages": 1,
   "plain": "Dépistage du cancer du poumon – Lung-RADS v2022",
   "title": "Dépistage pulmonaire · <span>Lung-RADS v2022</span>",
-  "ref": "ACR Lung-RADS v2022",
+  "ref": "ACR Lung-RADS v2022 · ACR AC Indolent 2026",
   "sub": "scanner faible dose de dépistage",
   "sources": [
    [
@@ -334,6 +338,14 @@
    [
     "Lung-RADS v2022 (Dartmouth)",
     "https://geiselmed.dartmouth.edu/radiology/wp-content/uploads/sites/47/2025/01/Lung-RADS-2022.pdf"
+   ],
+   [
+    "ACR AC Indolent Lung Cancer 2026 (PubMed)",
+    "https://pubmed.ncbi.nlm.nih.gov/42573542/"
+   ],
+   [
+    "ACR AC Indolent Lung Cancer (JACR, oct. 2026)",
+    "https://doi.org/10.1016/j.jacr.2026.07.003"
    ]
   ]
  },
@@ -363,6 +375,31 @@
    [
     "2026 AHA/ACC multisociety PE guideline",
     "https://www.ahajournals.org/doi/10.1161/CIR.0000000000001415"
+   ]
+  ]
+ },
+ {
+  "code": "TH-04",
+  "organe": "Thorax",
+  "oc": "#1f5fa8",
+  "ol": "#edf3fb",
+  "pages": 2,
+  "plain": "Pneumopathies diffuses – ACR 2026",
+  "title": "Pneumopathies diffuses · <span>ACR 2026</span>",
+  "ref": "ACR AC Diffuse Lung Disease 2026",
+  "sub": "HRCT · suspicion initiale, exacerbation aiguë, surveillance · patterns ERS/ATS 2025",
+  "sources": [
+   [
+    "ACR AC Diffuse Lung Disease : 2026 Update (JACR)",
+    "https://www.sciencedirect.com/science/article/pii/S1546144026003467"
+   ],
+   [
+    "ACR AC Search – Diffuse Lung Disease (tableaux 2026)",
+    "https://acsearch.acr.org/docs/3157911/Narrative/"
+   ],
+   [
+    "Patterns en imagerie des ILD – classification ERS/ATS 2025 (DIR 2026)",
+    "https://pmc.ncbi.nlm.nih.gov/articles/PMC13530495/"
    ]
   ]
  },

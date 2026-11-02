@@ -37,7 +37,7 @@ def mkplan(front):
 front=4
 plan,total=mkplan(front)
 css='<link rel="stylesheet" href="base.css">'
-modal={"TR-01":"Scanner · IRM","TR-02":"Toutes","NE-01":"Scanner · IRM","NE-02":"IRM","NE-03":"Scanner","NE-04":"Scanner de perfusion","CO-01":"Écho","SE-01":"Mammo · écho · IRM","TH-01":"Scanner","TH-02":"Scanner faible dose","TH-03":"Angioscanner","FO-01":"Scanner · IRM","FO-02":"Écho · CEUS","FO-03":"IRM · scanner · CEUS","RS-01":"Scanner · IRM","RS-02":"Scanner · IRM","PE-01":"IRM","PE-02":"Écho · IRM","PE-03":"IRM","PE-04":"IRM","OS-01":"Radio","OS-02":"Radio","OS-03":"IRM","OS-04":"Télérachis · EOS","OS-05":"Radio · écho · scanner","OS-06":"Pangonogramme · scanner · IRM","OS-07":"Radio","TR-03":"Scanner · IRM","CV-01":"Coroscanner","CV-02":"Scanner (score calcique)","CV-03":"Coroscanner (Cardiac CT Viewer)","CO-02":"TDM des rochers","PA-01":"IRM · scanner · EE","DI-01":"IRM","DI-02":"Scanner · écho","DI-03":"Écho · scanner · IRM","DI-04":"Scanner","DI-05":"IRM","DI-06":"IRM"}
+modal={"TR-01":"Scanner · IRM","TR-02":"Toutes","NE-01":"Scanner · IRM","NE-02":"IRM","NE-03":"Scanner","NE-04":"Scanner de perfusion","CO-01":"Écho","SE-01":"Mammo · écho · IRM","TH-01":"Scanner","TH-02":"Scanner faible dose","TH-03":"Angioscanner","TH-04":"Scanner (HRCT)","FO-01":"Scanner · IRM","FO-02":"Écho · CEUS","FO-03":"IRM · scanner · CEUS","RS-01":"Scanner · IRM","RS-02":"Scanner · IRM","PE-01":"IRM","PE-02":"Écho · IRM","PE-03":"IRM","PE-04":"IRM","OS-01":"Radio","OS-02":"Radio","OS-03":"IRM","OS-04":"Télérachis · EOS","OS-05":"Radio · écho · scanner","OS-06":"Pangonogramme · scanner · IRM","OS-07":"Radio","TR-03":"Scanner · IRM","CV-01":"Coroscanner","CV-02":"Scanner (score calcique)","CV-03":"Coroscanner (Cardiac CT Viewer)","CO-02":"TDM des rochers","PA-01":"IRM · scanner · EE","DI-01":"IRM","DI-02":"Scanner · écho","DI-03":"Écho · scanner · IRM","DI-04":"Scanner","DI-05":"IRM","DI-06":"IRM"}
 cover=f'''<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">{css}<style>
 body{{display:flex;flex-direction:column;height:277mm}}
 .top{{flex:1;display:flex;flex-direction:column;justify-content:center}}
@@ -74,9 +74,10 @@ veille={
 "NE-04":("AHA/ASA 2026 · ESO 2021/2023 · ESO-ESMINT","Seuils ISP par défaut ≠ seuils des essais ; recommandations ESO sur la thrombectomie à suivre"),
 "CO-01":("ETA 2023 · ACR TI-RADS 2017 · I-TIRADS 2023","Lexique international I-TIRADS publié (Radiology 2023) ; système complet de stratification (phase II) attendu"),
 "SE-01":("ACR BI-RADS v2025","—"),
-"TH-01":("Fleischner 2017","Glossaire Fleischner mis à jour (nouvelle terminologie des nodules) ; recommandations de suivi 2017 inchangées"),
-"TH-02":("Lung-RADS v2022","—"),
-"TH-03":("ESC/ERS 2019 · AHA/ACC 2026","Classification A–E 2026 intégrée (diagnostic, PERT, suivi MCTEP) ; prochaine version ESC à surveiller"),
+"TH-01":("Fleischner 2017","Recommandations 2017 inchangées ; nouveau critère ACR AC Indolent Lung Cancer (2026) : nodules subsolides persistants = cancers indolents, décision multidisciplinaire"),
+"TH-02":("Lung-RADS v2022 · ACR AC Indolent Lung Cancer 2026","Nouveau critère ACR (JACR oct. 2026) : cancers pulmonaires indolents (subsolides persistants, kystes atypiques) — staff multidisciplinaire ; surveillance sans injection si intervention différée, bilan + biopsie séparés de la surveillance"),
+"TH-04":("ACR AC Diffuse Lung Disease 2026 · classification ERS/ATS 2025","HRCT sans injection au centre des 3 variantes (suspicion, exacerbation, surveillance) ; TEP et IRM inappropriées ; angioscanner possible si suspicion d embolie en exacerbation"),
+ "TH-03":("ESC/ERS 2019 · AHA/ACC 2026","Classification A–E 2026 intégrée (diagnostic, PERT, suivi MCTEP) ; prochaine version ESC à surveiller"),
 "CV-01":("CAD-RADS 2.0 (2022)","—"),
 "CV-02":("ACC/AHA 2026 · ESC/EAS 2025 · CAC-DRS 2018 · Philips ISP","Mise à jour éventuelle du CAC-DRS (SCCT) ; seuils de volume et de masse non validés ; modèles de rapport ISP à aligner sur les catégories 2026"),
 "CV-03":("Philips ISP 12 · SCCT 2016/2021 · CAD-RADS 2.0","FFR-CT et IA embarquées à surveiller ; densités de plaque : valider les seuils sur son propre installateur"),
@@ -105,7 +106,7 @@ veille={
 "OS-06":("Paley · protocole de Lyon","Seuils TA-GT dépendants de la modalité (scanner ou IRM)"),
 "OS-07":("Mesures radiographiques usuelles","—"),
 }
-vdate={"NE-01":"30/10/2026","NE-04":"30/10/2026","CV-02":"30/10/2026","CO-02":"30/10/2026","DI-05":"31/10/2026","CO-01":"31/10/2026","TH-03":"31/10/2026","CV-03":"31/10/2026","PE-04":"02/11/2026","DI-06":"02/11/2026"}
+vdate={"NE-01":"30/10/2026","NE-04":"30/10/2026","CV-02":"30/10/2026","CO-02":"30/10/2026","DI-05":"31/10/2026","CO-01":"31/10/2026","TH-03":"31/10/2026","CV-03":"31/10/2026","PE-04":"02/11/2026","DI-06":"02/11/2026","TH-01":"02/11/2026","TH-02":"02/11/2026","TH-04":"02/11/2026"}
 rrows=''.join(f'<tr><td class="nw"><span class="ch" style="background:{m["oc"]};color:#fff;font-size:7.2pt">{m["code"]}</span></td><td>{html.escape(html.unescape(m["plain"]))}</td><td>{veille[m["code"]][0]}</td><td class="nw">{vdate.get(m["code"],"29/10/2026")}</td><td class="mute">{veille[m["code"]][1]}</td></tr>' for s_ in plan for m,_ in s_['fiches'])
 registre=f'''<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">{css}<style>.tb td{{font-size:8pt;padding:3px 5px}}</style></head><body>
 <div class="head" style="--oc:#1d2430"><div class="l"><span class="pill" style="background:#1d2430">Classeur · veille</span><h1>Registre des versions</h1></div><div class="meta"><b>Dernière vérification : 31 octobre 2026</b><br>référence utilisée par fiche et mises à jour attendues</div></div>
