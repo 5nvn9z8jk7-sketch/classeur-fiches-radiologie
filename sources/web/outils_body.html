@@ -8,6 +8,7 @@
 <div class="t-navg" style="--oc:#8b5e3c"><span>Rein</span><a href="#bosniak">Bosniak 2019</a></div>
 <div class="t-navg" style="--oc:#7a3b8f"><span>Pelvis</span><a href="#pirads">PI-RADS v2.1</a><a href="#oradsus">O-RADS US</a><a href="#oradsmri">O-RADS MRI</a></div>
 <div class="t-navg" style="--oc:#3d6b12"><span>Ostéo</span><a href="#bonerads">Bone-RADS</a></div>
+<div class="t-navg" style="--oc:#4a5462"><span>Transversal</span><a href="#noderads">Node-RADS v1.0</a></div>
 </nav>
 
 <section class="t-box" id="aspects" style="--oc:#5b3fa0">
@@ -280,3 +281,28 @@
 <p class="t-note">Toujours décrire : ascite, carcinose, ganglions, ovaire controlatéral. O-RADS MRI 4 ou 5, ou O-RADS US 3–4 indéterminé : discussion oncogynécologique.</p>
 </section>
 
+
+<section class="t-box" id="noderads" style="--oc:#4a5462">
+<h2>Node-RADS v1.0 · ganglion (scanner, IRM)</h2>
+<p>Les questions apparaissent au fur et à mesure. Évaluer le ganglion le plus suspect de chaque station : taille (petit axe) puis configuration (texture + contours + forme). Voir la <a href="f/TR-03.html">fiche TR-03</a>.</p>
+<div class="t-grid"><form id="f-noderads">
+<fieldset class="t-q a-step" data-step="1"><legend>Étape 1 · Taille</legend><div class="t-opts">
+<label><input type="radio" name="tail" value="norm">Normal — petit axe &lt; 10 mm (règle générale), &lt; 15 mm inguinal, &lt; 5 mm pour les petites stations (rétropharyngé, mésorectal, obturateur…)</label>
+<label><input type="radio" name="tail" value="aug">Augmenté — 10–15 mm de petit axe, ou augmentation ≥ 2 mm vs examen antérieur</label>
+<label><input type="radio" name="tail" value="bulky">Bulky — plus grand diamètre ≥ 30 mm dans n'importe quel plan, ou conglomérat</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="2" style="display:none"><legend>Étape 2 · Texture</legend><div class="t-opts">
+<label><input type="radio" name="tex" value="hom">Homogène<em>0</em></label>
+<label><input type="radio" name="tex" value="het">Hétérogène<em>1</em></label>
+<label><input type="radio" name="tex" value="necf">Nécrose focale<em>2</em></label>
+<label><input type="radio" name="tex" value="necE">Nécrose étendue ou nouvelle<em>3</em></label>
+<label><input type="radio" name="tex" value="spec">Signe spécifique de l'entité — kystique (épidermoïde HPV+, thyroïde, germinale non séminomateuse), calcifications thyroïdiennes, texture mucineuse<em>3</em></label></div></fieldset>
+<fieldset class="t-q a-step" data-step="3" style="display:none"><legend>Étape 3 · Contours</legend><div class="t-opts">
+<label><input type="radio" name="con" value="lis">Lisses<em>0</em></label>
+<label><input type="radio" name="con" value="irr">Irréguliers ou flous<em>1</em></label></div></fieldset>
+<fieldset class="t-q a-step" data-step="4" style="display:none"><legend>Étape 4 · Forme</legend><div class="t-opts">
+<label><input type="radio" name="form" value="hile">Toute forme, hile graisseux conservé<em>0</em></label>
+<label><input type="radio" name="form" value="ren">Réniforme ou ovale, sans hile graisseux<em>0</em></label>
+<label><input type="radio" name="form" value="sph">Sphérique, sans hile graisseux<em>1</em></label></div></fieldset>
+</form><div class="t-res" id="res-noderads"></div></div>
+<p class="t-note">Un ganglion augmenté de taille mais homogène, à contours lisses et hile conservé reste Node-RADS 2. Mesurer le petit axe sur coupe axiale, dans la même phase et le même plan que l'examen antérieur. Grille reconstituée d'après Elsholtz et al. (2021) : vérifier la figure 1 de l'article original pour les cas limites.</p>
+</section>
