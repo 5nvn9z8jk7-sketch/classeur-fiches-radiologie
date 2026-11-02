@@ -364,4 +364,34 @@ if(fm){const stM=Array.from(fm.querySelectorAll('.a-step'));
   render('oradsmri',r);}
  fm.addEventListener('input',updM); fm.addEventListener('change',updM); updM();}
 
+// ---------- Node-RADS (questions progressives) ----------
+const fn=document.querySelector('#f-noderads');
+if(fn){const stN=Array.from(fn.querySelectorAll('.a-step'));
+ function updN(){const f=new FormData(fn);
+  const tail=f.get('tail'),tex=f.get('tex'),con=f.get('con'),form=f.get('form');
+  const cfg=tail==='norm'||tail==='aug';
+  stN[1].style.display=cfg?'':'none';
+  stN[2].style.display=(cfg&&tex)?'':'none';
+  stN[3].style.display=(cfg&&tex&&con)?'':'none';
+  const TEX={hom:'texture homogène',het:'texture hétérogène',necf:'nécrose focale',necE:'nécrose étendue ou nouvelle',spec:'signe spécifique de l\'entité (aspect kystique, calcifications ou texture mucineuse)'};
+  const CON={lis:'contours lisses',irr:'contours irréguliers ou flous'};
+  const FORM={hile:'hile graisseux conservé',ren:'réniforme ou ovale sans hile graisseux',sph:'sphérique sans hile graisseux'};
+  let s=null,det='';
+  if(tail==='bulky'){s=5;det='taille bulky — plus grand diamètre ≥ 30 mm ou conglomérat';}
+  else if(cfg&&tex&&con&&form){
+   const pts=(tex==='hom'?0:tex==='het'?1:tex==='necf'?2:3)+(con==='irr'?1:0)+(form==='sph'?1:0);
+   if(tail==='norm'){s=pts===0?1:pts===1?2:pts===2?3:pts===3?4:5;}
+   else{s=pts===0?2:pts===1?3:pts===2?4:5;}
+   det='taille '+(tail==='norm'?'normale':'augmentée')+' ; '+TEX[tex]+', '+CON[con]+', '+FORM[form]+' — configuration '+pts+' point'+(pts>1?'s':'');}
+  const SIG={1:'très faible',2:'faible',3:'équivoque',4:'élevée',5:'très élevée'};
+  const CDT={1:'Ganglion normal : aucune conduite particulière.',2:'Pas d\'anomalie morphologique : corrélation clinique ; en contexte néoplasique, comparer aux examens antérieurs et poursuivre la stadification.',3:'Catégorie équivoque : conduite selon le contexte clinique et le protocole de suivi de l\'entité ; avis spécialisé si doute.',4:'Probabilité élevée d\'atteinte maligne : à intégrer dans la stadification ; conduite multidisciplinaire (cytoponction ou biopsie selon contexte).',5:'Probabilité très élevée d\'atteinte maligne : à intégrer dans la stadification ; conduite multidisciplinaire.'};
+  let r;
+  if(s==null){r={k:'Node-RADS',cls:'c0',cat:'Répondre aux étapes',why:'Les questions apparaissent au fur et à mesure des réponses.',cdt:'Commencer par la taille du ganglion (petit axe).',ph:' '};}
+  else{const cls=s<=2?'c1':s===3?'c3':s===4?'c4':'c5';
+   r={k:'Node-RADS',v:'catégorie '+s,cls,cat:'Node-RADS '+s+' · probabilité d\'atteinte maligne '+SIG[s],
+    why:det?('Description : '+det+'.'):'',cdt:CDT[s],
+    ph:'Ganglion (Node-RADS v1.0) : catégorie '+s+' — probabilité '+SIG[s]+' d\'atteinte maligne ('+det+'). Noter la station et le petit axe en mm.'};}
+  render('noderads',r);}
+ fn.addEventListener('input',updN); fn.addEventListener('change',updN); updN();}
+
 })();
