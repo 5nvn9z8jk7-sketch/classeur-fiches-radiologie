@@ -279,4 +279,91 @@ if(fp){const stepsP=$$('.a-step',fp);
   render('coroprep',r);}
  fp.addEventListener('input',updP); fp.addEventListener('change',updP); updP();}
 
+// ---------- O-RADS echographie v2022 (questions progressives) ----------
+const fu=document.querySelector('#f-oradsus');
+if(fu){const stU=Array.from(fu.querySelectorAll('.a-step'));
+ function updU(){const f=new FormData(fu);
+  const ch=f.get('ch'),norm=f.get('norm'),ben=f.get('ben'),asc=f.get('asc'),sol=f.get('sol');
+  const ktyp=f.get('ktyp'),styp=f.get('styp'),cs=f.get('cs'),omb=f.get('omb');
+  const ok2=ch==='oui';
+  stU[1].style.display=ok2?'':'none';
+  stU[2].style.display=(ok2&&norm!=='oui')?'':'none';
+  stU[3].style.display=(ok2&&norm==='non'&&ben!=='oui')?'':'none';
+  stU[4].style.display=(ok2&&norm==='non'&&ben==='non')?'':'none';
+  stU[5].style.display=(ok2&&norm==='non'&&ben==='non'&&asc==='non')?'':'none';
+  stU[6].style.display=(ok2&&norm==='non'&&ben==='non'&&sol==='non')?'':'none';
+  stU[7].style.display=(ok2&&norm==='non'&&ben==='non'&&sol==='oui')?'':'none';
+  stU[8].style.display=(ok2&&norm==='non'&&ben==='non'&&sol==='oui'&&(styp==='lisse'||styp==='biloc'))?'':'none';
+  stU[9].style.display=(ok2&&norm==='non'&&ben==='non'&&sol==='oui'&&styp==='lisse')?'':'none';
+  const MAL={0:'—',1:'0 %',2:'< 1 %',3:'1–10 %',4:'10–50 %',5:'≥ 50 %'};
+  const CDT={0:'Nouvelle échographie ou IRM pour caractériser la lésion.',1:'Aucune conduite particulière.',2:'Selon taille et statut ménopausique : rien, ou échographie de contrôle à 6–12 mois (kyste simple > 5 cm, uniloculaire non simple > 3 cm).',3:'Si non opérée : échographie à 6 mois ; si composante solide : échographiste expert ou IRM (O-RADS MRI) ; avis gynécologique.',4:'Échographiste expert ou IRM ; gynécologue avec avis oncogynécologique.',5:'Oncogynécologue.'};
+  let s=null,det='';
+  if(ch==='non') s=0;
+  else if(ch==='oui'){
+   if(norm==='oui') s=1;
+   else if(ben==='oui') s=2;
+   else if(asc==='oui'){s=5;det='ascite et/ou nodules péritonéaux';}
+   else if(sol==='non'){ if(ktyp==='u_irr'){s=3;det='uniloculaire à paroi irrégulière';}
+    else if(ktyp==='grand'){s=3;det='kyste uni- ou biloculaire lisse ≥ 10 cm';}
+    else if(ktyp==='multi_lisse'){s=3;det='multiloculaire lisse < 10 cm, score couleur 1–3';}
+    else if(ktyp==='multi_autre'){s=4;det='multiloculaire ≥ 10 cm, score couleur 4 ou paroi/cloison irrégulière';}}
+   else if(sol==='oui'){
+    if(styp==='veg13'){s=4;det='uniloculaire avec 1–3 végétations';}
+    else if(styp==='veg4'){s=5;det='uniloculaire avec ≥ 4 végétations';}
+    else if(styp==='irreg'){s=5;det='solide irrégulier';}
+    else if(styp==='biloc'){ if(cs==='1'||cs==='2'){s=4;det='bi- ou multiloculaire avec composante solide, score couleur '+cs;}
+     else if(cs==='3'||cs==='4'){s=5;det='bi- ou multiloculaire avec composante solide, score couleur '+cs;}}
+    else if(styp==='lisse'){ if(cs==='1'){s=3;det='solide lisse, score couleur 1';}
+     else if(cs==='2'||cs==='3'){ if(omb==='oui'){s=3;det='solide lisse avec cône d\'ombre, score couleur '+cs;}
+      else if(omb==='non'){s=4;det='solide lisse sans cône d\'ombre, score couleur '+cs;}}
+     else if(cs==='4'){s=5;det='solide lisse, score couleur 4';}}}}
+  let r;
+  if(s==null){r={k:'O-RADS US',cls:'c0',cat:'Répondre aux étapes',why:'Les questions apparaissent au fur et à mesure des réponses.',cdt:'Commencer par la caractérisabilité de la lésion.',ph:' '};}
+  else{const cls=s===0?'c0':s<=2?'c1':s===3?'c3':s===4?'c4':'c5';
+   r={k:'O-RADS US',v:'catégorie '+s,cls,cat:'O-RADS US '+s+' · malignité '+MAL[s],
+    why:det?('Description : '+det+'.'):'Description standard de la catégorie '+s+'.',
+    cdt:CDT[s]+(s>=4?' Le seuil de malignité retenu est O-RADS 4.':''),
+    ph:'Lésion annexielle en échographie (O-RADS US v2022) : catégorie '+s+(det?' — '+det:'')+' ; risque de malignité '+MAL[s]+'. Conduite : '+CDT[s]};}
+  render('oradsus',r);}
+ fu.addEventListener('input',updU); fu.addEventListener('change',updU); updU();}
+
+// ---------- O-RADS IRM (questions progressives) ----------
+const fm=document.querySelector('#f-oradsmri');
+if(fm){const stM=Array.from(fm.querySelectorAll('.a-step'));
+ function updM(){const f=new FormData(fm);
+  const les=f.get('les'),benm=f.get('benm'),ss=f.get('ss'),per=f.get('per'),solm=f.get('solm'),kyst=f.get('kyst'),dce=f.get('dce');
+  stM[1].style.display=les==='oui'?'':'none';
+  stM[2].style.display=(les==='oui'&&benm==='non')?'':'none';
+  stM[3].style.display=(les==='oui'&&benm==='non'&&ss!=='oui')?'':'none';
+  stM[4].style.display=(les==='oui'&&benm==='non'&&ss==='non')?'':'none';
+  stM[5].style.display=(les==='oui'&&benm==='non'&&ss==='non'&&per==='non')?'':'none';
+  stM[6].style.display=(les==='oui'&&benm==='non'&&ss==='non'&&per==='non'&&solm==='non')?'':'none';
+  stM[7].style.display=(les==='oui'&&benm==='non'&&ss==='non'&&per==='non'&&solm==='oui')?'':'none';
+  const MAL={1:'pas de lésion',2:'< 0,5 %',3:'≈ 5 %',4:'≈ 50 %',5:'≈ 90 %'};
+  let s=null,det='';
+  if(les==='non'){s=1;}
+  else if(les==='oui'){
+   if(benm==='oui'){s=2;det='descripteur bénin (kyste sans paroi rehaussée ni tissu solide, hydrosalpinx, inclusion péritonéale, tératome mature sans tissu solide)';}
+   else if(ss==='oui'){s=2;det='tissu solide sombre/sombre (très hypo T2 et diffusion)';}
+   else if(per==='oui'){s=5;det='nodules ou épaississement péritonéal, mésentérique ou épiploïque';}
+   else if(solm==='non'){ if(kyst==='oui'){s=3;det='kyste uniloculaire à paroi rehaussée lisse ou multiloculaire sans tissu solide';}
+    else if(kyst==='non'){s=3;det='lésion indéterminée sans tissu solide ni paroi rehaussée typique — classer au moins 3';}}
+   else if(solm==='oui'){
+    if(dce==='bas'){s=3;det='tissu solide avec courbe de bas risque';}
+    else if(dce==='int'){s=4;det='tissu solide avec courbe de risque intermédiaire';}
+    else if(dce==='haut'){s=5;det='tissu solide avec courbe de haut risque';}
+    else if(dce==='le'){s=4;det='rehaussement ≤ myomètre externe à 30–40 s sans DCE';}
+    else if(dce==='gt'){s=5;det='rehaussement > myomètre externe à 30–40 s sans DCE';}
+    else if(dce==='gras'){s=4;det='lésion graisseuse avec volume important de tissu solide rehaussé';}}}
+  let r;
+  if(s==null){r={k:'O-RADS MRI',cls:'c0',cat:'Répondre aux étapes',why:'Les questions apparaissent au fur et à mesure des réponses.',cdt:'Commencer par la présence d\'une lésion caractérisable.',ph:' '};}
+  else{const cls=s===1?'c1':s===2?'c1':s===3?'c3':s===4?'c4':'c5';
+   const CDT=s===1?'Aucune conduite particulière.':s===2?'Aucun suivi spécifique de la lésion bénigne décrite.':s===3?'Suivi selon contexte ; discussion gynécologique si évolution ou doute.':s===4?'Avis oncogynécologique : stratégie chirurgicale ou traitement selon le contexte.':'Oncogynécologue.';
+   r={k:'O-RADS MRI',v:s===1?'pas de lésion':'catégorie '+s,cls,cat:s===1?'O-RADS MRI 1 · pas de lésion':'O-RADS MRI '+s+' · risque '+MAL[s],
+    why:det?('Description : '+det+'.'):'Description standard de la catégorie '+s+'.',
+    cdt:CDT+(s>=4?' Toujours décrire : ascite, carcinose, ganglions, ovaire controlatéral.':''),
+    ph:'IRM pelvienne (O-RADS MRI) : '+(s===1?'pas de lésion annexielle significative':'catégorie '+s+(det?' — '+det:'')+' ; risque de malignité '+MAL[s])+'. Conduite : '+CDT};}
+  render('oradsmri',r);}
+ fm.addEventListener('input',updM); fm.addEventListener('change',updM); updM();}
+
 })();

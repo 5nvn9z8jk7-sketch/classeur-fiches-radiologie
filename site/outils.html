@@ -14,7 +14,7 @@
 <div class="t-navg" style="--oc:#be123c"><span>Cœur</span><a href="#cadrads">CAD-RADS 2.0</a><a href="#coroprep">Préparation coro</a></div>
 <div class="t-navg" style="--oc:#0f6e6e"><span>Foie</span><a href="#lirads">LI-RADS CT/IRM</a></div>
 <div class="t-navg" style="--oc:#8b5e3c"><span>Rein</span><a href="#bosniak">Bosniak 2019</a></div>
-<div class="t-navg" style="--oc:#7a3b8f"><span>Pelvis</span><a href="#pirads">PI-RADS v2.1</a></div>
+<div class="t-navg" style="--oc:#7a3b8f"><span>Pelvis</span><a href="#pirads">PI-RADS v2.1</a><a href="#oradsus">O-RADS US</a><a href="#oradsmri">O-RADS MRI</a></div>
 <div class="t-navg" style="--oc:#3d6b12"><span>Ostéo</span><a href="#bonerads">Bone-RADS</a></div>
 </nav>
 
@@ -242,7 +242,54 @@
 </form><div class="t-res" id="res-bonerads"></div></div>
 <p class="t-note">Catégorie 0 (incomplet) si le risque n'est pas évaluable, par exemple lésion lytique du squelette axial : incidences supplémentaires ou imagerie en coupes.</p>
 </section>
-<p class="t-note">O-RADS n'a pas de calculateur : la classification repose sur un lexique descriptif étendu qui se prête mal à un formulaire court ; utiliser la <a href="f/PE-02.html">fiche PE-02</a>.</p>
+<section class="t-box" id="oradsus" style="--oc:#7a3b8f">
+<h2>O-RADS échographie v2022 · score de risque</h2>
+<p>Les questions apparaissent au fur et à mesure. Score couleur (CS) : 1 aucun flux · 2 minime · 3 modéré · 4 intense. Végétation = composante solide ≥ 3 mm faisant saillie dans le kyste. Voir la <a href="f/PE-02.html">fiche PE-02</a>.</p>
+<div class="t-grid"><form id="f-oradsus">
+<fieldset class="t-q a-step" data-step="1"><legend>Étape 1 · Lésion complètement caractérisable ?</legend><div class="t-opts">
+<label><input type="radio" name="ch" value="oui">Oui</label><label><input type="radio" name="ch" value="non">Non — technique, gaz, patiente</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="2" style="display:none"><legend>Étape 2 · Ovaire normal, follicule ou corps jaune ≤ 3 cm (préménopause) ?</legend><div class="t-opts">
+<label><input type="radio" name="norm" value="oui">Oui</label><label><input type="radio" name="norm" value="non">Non</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="3" style="display:none"><legend>Étape 3 · Lésion bénigne classique &lt; 10 cm ou kyste lisse &lt; 10 cm ?</legend><div class="t-opts">
+<label><input type="radio" name="ben" value="oui">Oui — kyste simple, hémorragique, endométriome, dermoïde, paraovarien, inclusion péritonéale, hydrosalpinx, ou uniloculaire/biloculaire lisse non simple</label><label><input type="radio" name="ben" value="non">Non</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="4" style="display:none"><legend>Étape 4 · Ascite et/ou nodules péritonéaux ?</legend><div class="t-opts">
+<label><input type="radio" name="asc" value="oui">Oui</label><label><input type="radio" name="asc" value="non">Non</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="5" style="display:none"><legend>Étape 5 · Composante solide ou végétations ?</legend><div class="t-opts">
+<label><input type="radio" name="sol" value="non">Non — lésion purement kystique</label><label><input type="radio" name="sol" value="oui">Oui</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="6" style="display:none"><legend>Étape 6 · Lésion kystique : quel type ?</legend><div class="t-opts">
+<label><input type="radio" name="ktyp" value="u_irr">Uniloculaire à paroi irrégulière</label><label><input type="radio" name="ktyp" value="grand">Uni- ou biloculaire lisse ≥ 10 cm</label><label><input type="radio" name="ktyp" value="multi_lisse">Multiloculaire lisse &lt; 10 cm, score couleur 1–3</label><label><input type="radio" name="ktyp" value="multi_autre">Multiloculaire ≥ 10 cm, score couleur 4 ou paroi/cloison irrégulière</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="7" style="display:none"><legend>Étape 7 · Type de composante solide ?</legend><div class="t-opts">
+<label><input type="radio" name="styp" value="lisse">Solide lisse</label><label><input type="radio" name="styp" value="veg13">Uniloculaire avec 1–3 végétations</label><label><input type="radio" name="styp" value="veg4">Uniloculaire avec ≥ 4 végétations</label><label><input type="radio" name="styp" value="biloc">Bi- ou multiloculaire avec composante solide</label><label><input type="radio" name="styp" value="irreg">Solide irrégulier</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="8" style="display:none"><legend>Étape 8 · Score couleur de la lésion</legend><div class="t-opts">
+<label><input type="radio" name="cs" value="1">1 — aucun flux</label><label><input type="radio" name="cs" value="2">2 — flux minime</label><label><input type="radio" name="cs" value="3">3 — flux modéré</label><label><input type="radio" name="cs" value="4">4 — flux intense</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="9" style="display:none"><legend>Étape 9 · Cône d'ombre postérieur ?</legend><div class="t-opts">
+<label><input type="radio" name="omb" value="oui">Oui</label><label><input type="radio" name="omb" value="non">Non</label></div></fieldset>
+</form><div class="t-res" id="res-oradsus"></div></div>
+<p class="t-note">Un caillot ou du tissu sans flux n'est pas une composante solide ; une composante solide certaine sans flux reste solide. Le seuil de malignité retenu est O-RADS 4.</p>
+</section>
+
+<section class="t-box" id="oradsmri" style="--oc:#7a3b8f">
+<h2>O-RADS IRM · score de risque</h2>
+<p>Les questions apparaissent au fur et à mesure. Le tissu solide se compare au myomètre externe (DCE, résolution temporelle ≤ 15 s) ; sans DCE, comparer le rehaussement à 30–40 s. Voir la <a href="f/PE-02.html">fiche PE-02</a>.</p>
+<div class="t-grid"><form id="f-oradsmri">
+<fieldset class="t-q a-step" data-step="1"><legend>Étape 1 · Lésion annexielle identifiée et caractérisable ?</legend><div class="t-opts">
+<label><input type="radio" name="les" value="oui">Oui</label><label><input type="radio" name="les" value="non">Non — ovaires normaux (ou follicule, corps jaune, kyste hémorragique &lt; 3 cm en préménopause)</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="2" style="display:none"><legend>Étape 2 · Descripteur bénin ?</legend><div class="t-opts">
+<label><input type="radio" name="benm" value="oui">Oui — kyste uniloculaire sans paroi rehaussée ni tissu solide (liquide simple, endométriome, contenu graisseux), hydrosalpinx, kyste d'inclusion péritonéal typique, tératome mature sans tissu solide</label><label><input type="radio" name="benm" value="non">Non</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="3" style="display:none"><legend>Étape 3 · Tissu solide « sombre / sombre » ?</legend><div class="t-opts">
+<label><input type="radio" name="ss" value="oui">Oui — homogène très hypo-intense en T2 et en diffusion (fibrome ovarien, Brenner)</label><label><input type="radio" name="ss" value="non">Non</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="4" style="display:none"><legend>Étape 4 · Nodules ou épaississement péritonéal, mésentérique ou épiploïque ?</legend><div class="t-opts">
+<label><input type="radio" name="per" value="oui">Oui</label><label><input type="radio" name="per" value="non">Non</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="5" style="display:none"><legend>Étape 5 · Tissu solide rehaussé (hors sombre/sombre) ?</legend><div class="t-opts">
+<label><input type="radio" name="solm" value="non">Non</label><label><input type="radio" name="solm" value="oui">Oui — papille, nodule mural, septum irrégulier ou portion solide qui se rehausse</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="6" style="display:none"><legend>Étape 6 · Sans tissu solide : paroi rehaussée lisse ?</legend><div class="t-opts">
+<label><input type="radio" name="kyst" value="oui">Oui — kyste uniloculaire à liquide non graisseux avec paroi rehaussée lisse, ou kyste multiloculaire sans tissu solide</label><label><input type="radio" name="kyst" value="non">Non</label></div></fieldset>
+<fieldset class="t-q a-step" data-step="7" style="display:none"><legend>Étape 7 · Courbe de rehaussement du tissu solide</legend><div class="t-opts">
+<label><input type="radio" name="dce" value="bas">Bas risque — ascension progressive sans plateau</label><label><input type="radio" name="dce" value="int">Intermédiaire — ascension moins raide que le myomètre externe puis plateau</label><label><input type="radio" name="dce" value="haut">Haut risque — ascension initiale plus raide que le myomètre externe</label><label><input type="radio" name="dce" value="le">Sans DCE : rehaussement ≤ myomètre externe à 30–40 s</label><label><input type="radio" name="dce" value="gt">Sans DCE : rehaussement &gt; myomètre externe à 30–40 s</label><label><input type="radio" name="dce" value="gras">Lésion graisseuse avec volume important de tissu solide rehaussé</label></div></fieldset>
+</form><div class="t-res" id="res-oradsmri"></div></div>
+<p class="t-note">Toujours décrire : ascite, carcinose, ganglions, ovaire controlatéral. O-RADS MRI 4 ou 5, ou O-RADS US 3–4 indéterminé : discussion oncogynécologique.</p>
+</section>
+
 </main></div>
 <footer class="w-foot"><div>Aide-mémoire pour radiologues et internes. Ne remplace ni les recommandations originales, ni la discussion multidisciplinaire, ni le jugement clinique. Schémas simplifiés, non à l'échelle ; les images de référence sont consultables via les liens (Radiopaedia, sociétés savantes). Dernière vérification : 31 octobre 2026. <span id="w-offline" hidden>· Consultable hors ligne sur cet appareil après une première visite.</span></div></footer>
 <script src="assets/app.js"></script></body></html>
