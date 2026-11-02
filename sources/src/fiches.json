@@ -1068,11 +1068,15 @@
   "sub": "aspects attendus selon la phase, ressources",
   "sources": [
    [
+    "ACR · LI-RADS CT/MRI (page officielle)",
+    "https://www.acr.org/Clinical-Resources/Clinical-Tools-and-Reference/Reporting-and-Data-Systems/LI-RADS"
+   ],
+   [
     "LI-RADS v2018 Core",
     "https://ref.mcbradiology.com/Body/Liver/HCC%20&%20LI-RADS/LI-RADS%202018%20CT%20&%20MRI%20Core.pdf"
    ],
    [
-    "Radiopaedia – CT/MRI LI-RADS",
+    "Radiopaedia · CT/MRI LI-RADS",
     "https://radiopaedia.org/articles/ctmri-li-rads?lang=us"
    ]
   ]
