@@ -546,6 +546,35 @@
   ]
  },
  {
+  "code": "PE-04",
+  "organe": "Pelvis",
+  "oc": "#7a3b8f",
+  "ol": "#f5eef8",
+  "pages": 3,
+  "plain": "IRM périnéale – Fistules anales",
+  "title": "IRM périnéale · <span>fistules anales</span>",
+  "ref": "ESGAR · Parks · St James",
+  "sub": "protocole, classifications, orifice interne, activité du track, pièges",
+  "sources": [
+   [
+    "RadioGraphics 2026 – MRI of perianal fistulas (Parks, St James, Crohn)",
+    "https://pubs.rsna.org/doi/10.1148/rg.250033"
+   ],
+   [
+    "Role of MRI in perianal fistulizing disease (Abdom Radiol 2024)",
+    "https://link.springer.com/article/10.1007/s00261-024-04455-w"
+   ],
+   [
+    "Radiopaedia · classification de Parks",
+    "https://radiopaedia.org/articles/parks-classification-of-anal-fistulae?lang=us"
+   ],
+   [
+    "Radiopaedia · fistule périnéale",
+    "https://radiopaedia.org/articles/perianal-fistula?lang=us"
+   ]
+  ]
+ },
+ {
   "code": "OS-01",
   "organe": "Ostéo-articulaire",
   "oc": "#3d6b12",

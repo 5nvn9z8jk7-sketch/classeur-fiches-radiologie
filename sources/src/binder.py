@@ -37,7 +37,7 @@ def mkplan(front):
 front=4
 plan,total=mkplan(front)
 css='<link rel="stylesheet" href="base.css">'
-modal={"TR-01":"Scanner · IRM","TR-02":"Toutes","NE-01":"Scanner · IRM","NE-02":"IRM","NE-03":"Scanner","NE-04":"Scanner de perfusion","CO-01":"Écho","SE-01":"Mammo · écho · IRM","TH-01":"Scanner","TH-02":"Scanner faible dose","TH-03":"Angioscanner","FO-01":"Scanner · IRM","FO-02":"Écho · CEUS","FO-03":"IRM · scanner · CEUS","RS-01":"Scanner · IRM","RS-02":"Scanner · IRM","PE-01":"IRM","PE-02":"Écho · IRM","PE-03":"IRM","OS-01":"Radio","OS-02":"Radio","OS-03":"IRM","OS-04":"Télérachis · EOS","OS-05":"Radio · écho · scanner","OS-06":"Pangonogramme · scanner · IRM","OS-07":"Radio","TR-03":"Scanner · IRM","CV-01":"Coroscanner","CV-02":"Scanner (score calcique)","CV-03":"Coroscanner (Cardiac CT Viewer)","CO-02":"TDM des rochers","PA-01":"IRM · scanner · EE","DI-01":"IRM","DI-02":"Scanner · écho","DI-03":"Écho · scanner · IRM","DI-04":"Scanner","DI-05":"IRM"}
+modal={"TR-01":"Scanner · IRM","TR-02":"Toutes","NE-01":"Scanner · IRM","NE-02":"IRM","NE-03":"Scanner","NE-04":"Scanner de perfusion","CO-01":"Écho","SE-01":"Mammo · écho · IRM","TH-01":"Scanner","TH-02":"Scanner faible dose","TH-03":"Angioscanner","FO-01":"Scanner · IRM","FO-02":"Écho · CEUS","FO-03":"IRM · scanner · CEUS","RS-01":"Scanner · IRM","RS-02":"Scanner · IRM","PE-01":"IRM","PE-02":"Écho · IRM","PE-03":"IRM","PE-04":"IRM","OS-01":"Radio","OS-02":"Radio","OS-03":"IRM","OS-04":"Télérachis · EOS","OS-05":"Radio · écho · scanner","OS-06":"Pangonogramme · scanner · IRM","OS-07":"Radio","TR-03":"Scanner · IRM","CV-01":"Coroscanner","CV-02":"Scanner (score calcique)","CV-03":"Coroscanner (Cardiac CT Viewer)","CO-02":"TDM des rochers","PA-01":"IRM · scanner · EE","DI-01":"IRM","DI-02":"Scanner · écho","DI-03":"Écho · scanner · IRM","DI-04":"Scanner","DI-05":"IRM"}
 cover=f'''<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">{css}<style>
 body{{display:flex;flex-direction:column;height:277mm}}
 .top{{flex:1;display:flex;flex-direction:column;justify-content:center}}
@@ -95,6 +95,7 @@ veille={
 "PE-01":("PI-RADS v2.1 · PI-QUAL v2","Nouvelle version (« PI-RADS Pathway ») annoncée pour 2026"),
 "PE-02":("O-RADS US v2022 · O-RADS MRI","Nouvelle version O-RADS attendue"),
 "PE-03":("ESUR 2025 · dPEI","—"),
+"PE-04":("Parks · St James · consensus ESGAR","RadioGraphics 2026 (rg.250033) fait le point ; scores d'activité IRM (Van Assche) pour le Crohn à détailler si besoin"),
 "OS-01":("Bone-RADS v2023","—"),
 "OS-02":("Ottawa · Salter-Harris · Garden","—"),
 "OS-03":("NASS/ASSR/ASNR v2.0 (2014)","—"),
@@ -103,7 +104,7 @@ veille={
 "OS-06":("Paley · protocole de Lyon","Seuils TA-GT dépendants de la modalité (scanner ou IRM)"),
 "OS-07":("Mesures radiographiques usuelles","—"),
 }
-vdate={"NE-01":"30/10/2026","NE-04":"30/10/2026","CV-02":"30/10/2026","CO-02":"30/10/2026","DI-05":"31/10/2026","CO-01":"31/10/2026","TH-03":"31/10/2026","CV-03":"31/10/2026"}
+vdate={"NE-01":"30/10/2026","NE-04":"30/10/2026","CV-02":"30/10/2026","CO-02":"30/10/2026","DI-05":"31/10/2026","CO-01":"31/10/2026","TH-03":"31/10/2026","CV-03":"31/10/2026","PE-04":"02/11/2026"}
 rrows=''.join(f'<tr><td class="nw"><span class="ch" style="background:{m["oc"]};color:#fff;font-size:7.2pt">{m["code"]}</span></td><td>{html.escape(html.unescape(m["plain"]))}</td><td>{veille[m["code"]][0]}</td><td class="nw">{vdate.get(m["code"],"29/10/2026")}</td><td class="mute">{veille[m["code"]][1]}</td></tr>' for s_ in plan for m,_ in s_['fiches'])
 registre=f'''<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">{css}<style>.tb td{{font-size:8pt;padding:3px 5px}}</style></head><body>
 <div class="head" style="--oc:#1d2430"><div class="l"><span class="pill" style="background:#1d2430">Classeur · veille</span><h1>Registre des versions</h1></div><div class="meta"><b>Dernière vérification : 31 octobre 2026</b><br>référence utilisée par fiche et mises à jour attendues</div></div>
