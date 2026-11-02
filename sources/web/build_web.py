@@ -136,7 +136,8 @@ for i, m in enumerate(fiches):
     prev = fiches[i-1] if i > 0 else None; nxt = fiches[i+1] if i < len(fiches)-1 else None
     pn = '<nav class="w-pn" aria-label="Fiche précédente ou suivante">' + (f'<a href="{prev["code"]}.html"><small>Précédente</small>{prev["code"]} · {html.escape(html.unescape(prev["plain"]))}</a>' if prev else '<span></span>') + (f'<a class="nx" href="{nxt["code"]}.html"><small>Suivante</small>{nxt["code"]} · {html.escape(html.unescape(nxt["plain"]))}</a>' if nxt else '<span></span>') + '</nav>'
     tools = {'NE-01':'aspects','NE-04':'avctt','FO-01':'lirads','CO-01':'eutirads','OS-01':'bonerads','TH-01':'fleischner','TH-02':'lungrads','CV-01':'cadrads','RS-01':'bosniak','PE-01':'pirads'}
-    tl = f'<a class="w-btn ghost" href="../outils.html#{tools[code]}">Calculateur interactif</a>' if code in tools else ''
+    multi = {'PE-02':(('oradsus','O-RADS US'),('oradsmri','O-RADS MRI'))}
+    tl = f'<a class="w-btn ghost" href="../outils.html#{tools[code]}">Calculateur interactif</a>' if code in tools else ''.join(f'<a class="w-btn ghost" href="../outils.html#{a}">{l}</a>' for a, l in multi.get(code, ()))
     hdr = f'''<div class="w-fh" style="--oc:{m['oc']}"><div><span class="w-pill">{m['organe']} · {code}</span><h1>{m['title']}</h1><p>{m['ref']} · {m['sub']}</p></div>
 <div class="w-actions">{tl}<a class="w-btn" href="../pdf/{code}.pdf" download>Télécharger le PDF</a><button class="w-btn ghost" onclick="window.print()">Imprimer</button></div></div>'''
     main = hdr + content + pn
