@@ -646,6 +646,31 @@
   ]
  },
  {
+  "code": "DI-06",
+  "organe": "Tube digestif",
+  "oc": "#c2410c",
+  "ol": "#fdf1ea",
+  "pages": 2,
+  "plain": "Entéro-IRM – Crohn (ESGAR 2025)",
+  "title": "Entéro-IRM · <span>Crohn (ESGAR 2025)</span>",
+  "ref": "ESR Essentials ESGAR 2025 (Eur Radiol)",
+  "sub": "protocole · activité, phénotype, sténose, fistule · réponse au traitement",
+  "sources": [
+   [
+    "ESR Essentials 2025 – ESGAR practice recommendations, luminal Crohn",
+    "https://link.springer.com/article/10.1007/s00330-025-11620-2"
+   ],
+   [
+    "ECCO-ESGAR topical review – optimising reporting in IBD (2022)",
+    "https://academic.oup.com/ecco-jcc/article/16/4/523/6386300"
+   ],
+   [
+    "Essai METRIC – MRE vs échographie (Lancet Gastroenterol Hepatol 2018)",
+    "https://doi.org/10.1016/S2468-1253(18)30161-4"
+   ]
+  ]
+ },
+ {
   "code": "CV-01",
   "organe": "Cœur · vaisseaux",
   "oc": "#be123c",
