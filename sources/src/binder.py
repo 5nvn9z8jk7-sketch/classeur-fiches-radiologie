@@ -79,7 +79,7 @@ veille={
 "TH-04":("ACR AC Diffuse Lung Disease 2026 · classification ERS/ATS 2025","HRCT sans injection au centre des 3 variantes (suspicion, exacerbation, surveillance) ; TEP et IRM inappropriées ; angioscanner possible si suspicion d embolie en exacerbation"),
  "TH-03":("ESC/ERS 2019 · AHA/ACC 2026","Classification A–E 2026 intégrée (diagnostic, PERT, suivi MCTEP) ; prochaine version ESC à surveiller"),
 "CV-01":("CAD-RADS 2.0 (2022)","—"),
-"CV-02":("ACC/AHA 2026 · ESC/EAS 2025 · CAC-DRS 2018 · Philips ISP","Mise à jour éventuelle du CAC-DRS (SCCT) ; seuils de volume et de masse non validés ; modèles de rapport ISP à aligner sur les catégories 2026"),
+"CV-02":("ACC/AHA 2026 · ESC/EAS 2025 · ESC/EACTS 2021 · CAC-DRS 2018 · Philips ISP","Mise à jour éventuelle du CAC-DRS (SCCT) ; seuils de volume et de masse non validés ; prochain ESC valvulopathies : revoir les seuils AVC ; modèles de rapport ISP à aligner sur les catégories 2026"),
 "CV-03":("Philips ISP 12 · SCCT 2016/2021 · CAD-RADS 2.0","FFR-CT et IA embarquées à surveiller ; densités de plaque : valider les seuils sur son propre installateur"),
 "CO-02":("RPC SFORL imagerie du rocher · ACR AC Hearing loss · SBO 2023","Pas de recommandation radiologique dédiée ; place du comptage photonique et du cone beam à suivre"),
 "FO-01":("LI-RADS CT/MRI v2018","Algorithme de réponse au traitement mis à jour en 2024 (hors fiche)"),
@@ -106,7 +106,7 @@ veille={
 "OS-06":("Paley · protocole de Lyon","Seuils TA-GT dépendants de la modalité (scanner ou IRM)"),
 "OS-07":("Mesures radiographiques usuelles","—"),
 }
-vdate={"NE-01":"30/10/2026","NE-04":"30/10/2026","CV-02":"30/10/2026","CO-02":"30/10/2026","DI-05":"31/10/2026","CO-01":"31/10/2026","TH-03":"31/10/2026","CV-03":"31/10/2026","PE-04":"02/11/2026","DI-06":"02/11/2026","TH-01":"02/11/2026","TH-02":"02/11/2026","TH-04":"02/11/2026"}
+vdate={"NE-01":"30/10/2026","NE-04":"30/10/2026","CV-02":"09/11/2026","CO-02":"30/10/2026","DI-05":"31/10/2026","CO-01":"31/10/2026","TH-03":"31/10/2026","CV-03":"31/10/2026","PE-04":"02/11/2026","DI-06":"02/11/2026","TH-01":"02/11/2026","TH-02":"02/11/2026","TH-04":"02/11/2026"}
 rrows=''.join(f'<tr><td class="nw"><span class="ch" style="background:{m["oc"]};color:#fff;font-size:7.2pt">{m["code"]}</span></td><td>{html.escape(html.unescape(m["plain"]))}</td><td>{veille[m["code"]][0]}</td><td class="nw">{vdate.get(m["code"],"29/10/2026")}</td><td class="mute">{veille[m["code"]][1]}</td></tr>' for s_ in plan for m,_ in s_['fiches'])
 registre=f'''<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">{css}<style>.tb td{{font-size:8pt;padding:3px 5px}}</style></head><body>
 <div class="head" style="--oc:#1d2430"><div class="l"><span class="pill" style="background:#1d2430">Classeur · veille</span><h1>Registre des versions</h1></div><div class="meta"><b>Dernière vérification : 31 octobre 2026</b><br>référence utilisée par fiche et mises à jour attendues</div></div>
