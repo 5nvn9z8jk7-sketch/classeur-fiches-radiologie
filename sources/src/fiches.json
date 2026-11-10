@@ -683,6 +683,67 @@
     ]
   },
   {
+    "code": "TR-04",
+    "organe": "Transversal",
+    "oc": "#4a5462",
+    "ol": "#f0f2f5",
+    "pages": 2,
+    "plain": "Dispositifs implantés – contrôle radiographique",
+    "title": "Dispositifs implantés · <span>contrôle radiographique</span>",
+    "ref": "EHJ-CI 2024 · CNGOF · revues RSNA/BJR",
+    "sub": "pacemaker, DAI, stérilet, Essure, cathéters, JJ, dérivations",
+    "sources": [
+      [
+        "EACVI/EHRA 2024 – imaging in patients with CIEDs (Eur Heart J Cardiovasc Imaging)",
+        "https://academic.oup.com/ehjcimaging/article/25/1/e33/7325251"
+      ],
+      [
+        "Aguilera et al., RadioGraphics 2011 – radiography of cardiac conduction devices",
+        "https://pubs.rsna.org/doi/abs/10.1148/rg.316115529"
+      ],
+      [
+        "How to: cardiac conduction devices on chest radiograph (2024)",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11195763/"
+      ],
+      [
+        "BJR 2018 – radiographic evolution of CIEDs (sans sonde, S-ICD)",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC5966213/"
+      ],
+      [
+        "Ultrasonography of IUDs (Ultrasonography 2015)",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4484292/"
+      ],
+      [
+        "BJR 2018 – Essure-related complications, pictorial review",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6350478/"
+      ],
+      [
+        "Veersema et al. – reproductibilité de l’ASP pour Essure",
+        "https://research.vu.nl/ws/portalfiles/portal/42129810/hoofdstuk%204_%20Reproducibility.pdf"
+      ],
+      [
+        "CNGOF – explantation des dispositifs Essure",
+        "https://cngof.fr/app/uploads/2023/06/retrait-Essure.pdf"
+      ],
+      [
+        "Malpositioned lines and tubes on chest radiograph",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7655993/"
+      ],
+      [
+        "Pinch-off syndrome (grades de Hinke)",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC3764366/"
+      ],
+      [
+        "Pediatr Radiol 2026 – multimodality imaging of CSF shunts",
+        "https://link.springer.com/article/10.1007/s00247-026-06759-z"
+      ],
+      [
+        "AJNR – programmable shunt valves on radiographs",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC7965480/"
+      ]
+    ]
+  },
+  {
     "code": "DI-06",
     "organe": "Tube digestif",
     "oc": "#c2410c",

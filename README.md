@@ -19,5 +19,6 @@ Site en ligne : https://fiches-radiologie.pplx.app
 Les sources des fiches CV-02 (score calcique) et CO-02 (otospongiose) ne sont pas dans `sources/` : pour ces deux fiches, seule la version publiée dans `site/` existe. Ne pas reconstruire le site à partir de `sources/` sans les restaurer, sinon ces fiches disparaîtraient.
 
 ## Dernières modifications
+- 10/11/2026 : fiche TR-04, contrôle radiographique des dispositifs implantés (pacemaker, DAI, CRT, sans sonde, DAI sous-cutané, stérilet, Essure avant et après retrait, chambres et cathéters centraux, pinch-off, sonde JJ, dérivations du LCR, valves programmables, neurostimulateurs) avec compte rendu type ; numéros de page du sommaire corrigés (décalage d’une page).
 - 30/10/2026 : CV-02, compte rendu type du score calcique (sans technique, bouton « Copier pour Word »), lien dans l'exemple et bouton en haut de la fiche.
 - 29/10/2026 : fiches CV-02 et CO-02, onglet Cou renommé ORL, fiches OS-04 à OS-07, NE-04, DI-03, DI-04, 11 calculateurs, mode sombre, consultation hors ligne.

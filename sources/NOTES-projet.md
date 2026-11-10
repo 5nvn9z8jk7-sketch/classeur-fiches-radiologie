@@ -61,3 +61,6 @@ NE-04 scanner de perfusion dans l'AVC aigu sur Philips IntelliSpace Portal : acq
 ## Mise à jour du 30/10/2026
 - CV-02 : nouvelle page `f/CV-02-cr.html` (compte rendu type du score calcique à remplir, sans technique, bouton « Copier pour Word »), liée depuis l'exemple de compte rendu de la fiche. Copie dans `web/extra/f/`.
 - Attention : les sources de CV-02 et CO-02 ne sont pas dans `src/` ; le site de référence est la sauvegarde GitHub (`site/`). Modifier ce dossier directement tant que les sources ne sont pas restaurées.
+
+## Ajout du 10/11/2026 · dispositifs implantés
+TR-04 (Transversal, 2 pages + atlas) : démarche commune, pacemaker/DAI/CRT (identification, position des sondes face/profil, complications, limites), stérilet (écho d’abord, ASP si non retrouvé, pièges), Essure (critères, limite des 4 cm, avant/après retrait selon le CNGOF), tableau des autres matériels (chambre/KT central, JJ, dérivation LCR, valve programmable, neurostimulateurs), compte rendu type. `binder.py` : `front=5` (le sommaire et le registre font chacun 2 pages ; les numéros de page du sommaire étaient décalés d’une page).
