@@ -64,3 +64,6 @@ NE-04 scanner de perfusion dans l'AVC aigu sur Philips IntelliSpace Portal : acq
 
 ## Ajout du 10/11/2026 · dispositifs implantés
 TR-04 (Transversal, 2 pages + atlas) : démarche commune, pacemaker/DAI/CRT (identification, position des sondes face/profil, complications, limites), stérilet (écho d’abord, ASP si non retrouvé, pièges), Essure (critères, limite des 4 cm, avant/après retrait selon le CNGOF), tableau des autres matériels (chambre/KT central, JJ, dérivation LCR, valve programmable, neurostimulateurs), compte rendu type. `binder.py` : `front=5` (le sommaire et le registre font chacun 2 pages ; les numéros de page du sommaire étaient décalés d’une page).
+
+## Ajout du 10/11/2026 · syndromes parkinsoniens
+NE-05 (Neuro, 2 pages + atlas `src/gen/ne05.svg` dessiné à la main) : protocole IRM, arbre diagnostique (cause secondaire → signes atypiques → DaTscan → MP/atypique), MP (IRM normale, queue d’hirondelle, DaTscan, MIBG, FDG), planimétrie PSP (M/P, diamètre AP, MRPI, MRPI 2.0), tableau comparatif MP/AMS/PSP/DCB/DCL avec place dans les critères (MDS 2015, MDS 2022, MDS 2017, Armstrong 2013, McKeith 2017), parkinsonismes secondaires, pièges, compte rendu type. Classeur : 42 fiches, 119 pages.
