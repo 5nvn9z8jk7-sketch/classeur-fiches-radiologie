@@ -46,7 +46,7 @@ button.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
 <div class="btns"><button id="copy" type="button">Copier pour Word</button><button class="ghost" id="reset" type="button">Effacer les valeurs</button><button class="ghost" type="button" onclick="window.print()">Imprimer</button></div></div>
 <p class="help">Cliquez dans les zones <mark>surlignées</mark> pour saisir vos valeurs ; tout le texte reste modifiable. Choisissez la catégorie pour pré-remplir la conclusion, puis « Copier pour Word » et collez dans votre document (le surlignage n'est pas copié).</p>
 <div class="cats" role="group" aria-label="Catégorie du score"><span>Catégorie (Agatston) :</span>
-<button type="button" data-c="0">0 · absent</button><button type="button" data-c="1">1–9 · minime</button><button type="button" data-c="2">10–99 · léger</button><button type="button" data-c="3">100–299 · modéré</button><button type="button" data-c="4">300–999 · sévère</button><button type="button" data-c="5">≥ 1000 · étendu</button><span style="margin-left:6px">score de 1 à 99 mais ≥ 75<sup>e</sup> percentile : choisir « modéré »</span></div>
+<button type="button" data-c="0">0 · absent</button><button type="button" data-c="1">1–9 · minime</button><button type="button" data-c="2">10–99 · léger</button><button type="button" data-c="3">100–299 · modéré</button><button type="button" data-c="4">300–999 · sévère</button><button type="button" data-c="5">≥ 1000 · étendu</button><span style="margin-left:6px">score de 1 à 99 et ≥ 75<sup>e</sup> percentile : « modéré » est choisi automatiquement</span></div>
 <div class="paper"><div id="cr">
 <h1>Score calcique coronaire</h1>
 <p><b>Indication :</b> <span class="f" contenteditable="true" data-d="évaluation du risque cardiovasculaire en prévention primaire"></span></p>
@@ -86,6 +86,8 @@ const C={
 3:"Calcifications coronaires modérées. Selon les recommandations ACC/AHA 2026, un traitement hypolipémiant est indiqué, statine en première intention (baisse du LDL ≥ 50 % et LDL < 0,70 g/L).",
 4:"Calcifications coronaires sévères. Selon les recommandations ACC/AHA 2026, un traitement hypolipémiant est indiqué (LDL < 0,70 g/L, intensification vers < 0,55 g/L raisonnable). Selon l'ESC/EAS 2025, ce score correspond à une athérosclérose avérée à l'imagerie : patient à très haut risque cardiovasculaire (LDL < 0,55 g/L et baisse ≥ 50 %).",
 5:"Calcifications coronaires étendues. Selon les recommandations ACC/AHA 2026, un traitement hypolipémiant est indiqué (baisse du LDL ≥ 50 % et LDL < 0,55 g/L). Selon l'ESC/EAS 2025, patient à très haut risque cardiovasculaire."};
+const P={1:"Calcifications coronaires minimes en valeur absolue, mais score supérieur ou égal au 75e percentile pour l'âge et le sexe. Selon les recommandations ACC/AHA 2026, un traitement hypolipémiant est indiqué, statine en première intention (baisse du LDL ≥ 50 %, LDL < 0,70 g/L et non-HDL < 1,00 g/L).",
+2:"Calcifications coronaires légères en valeur absolue, mais score supérieur ou égal au 75e percentile pour l'âge et le sexe. Selon les recommandations ACC/AHA 2026, un traitement hypolipémiant est indiqué, statine en première intention (baisse du LDL ≥ 50 %, LDL < 0,70 g/L et non-HDL < 1,00 g/L)."};
 const A={0:'0',1:'1',2:'1',3:'2',4:'3',5:'3'};
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 function init(){$$('#cr .f').forEach(e=>{e.textContent=e.dataset.d||''});$$('.cats button').forEach(b=>b.setAttribute('aria-pressed','false'))}
@@ -97,12 +99,17 @@ document.addEventListener('input',e=>{const t=e.target,key=t.dataset&&t.dataset.
  if(['tc','iva','cx','cd'].includes(key)){const v=['tc','iva','cx','cd'].map(x=>num(k(x)));if(v.every(x=>x!==null&&!isNaN(x))){const s=v.reduce((a,b)=>a+b,0);k('tot').textContent=String(Math.round(s));k('nart').textContent=String(v.filter(x=>x>0).length);k('n').textContent=k('nart').textContent;k('tot2').textContent=k('tot').textContent;k('n2').textContent=k('n').textContent;autoCat(s)}}
  const m={tot:'tot2',a:'a2',n:'n2',pct:'pct2'};if(m[key])k(m[key]).textContent=t.textContent;
  if(key==='nart'){k('n').textContent=t.textContent;k('n2').textContent=t.textContent}
- if(key==='tot'){const s=num(t);if(s!==null&&!isNaN(s))autoCat(s)}});
+ if(key==='tot'){const s=num(t);if(s!==null&&!isNaN(s))autoCat(s)}
+ if(key==='pct'&&base!==null)render()});
 function cat(s){return s===0?0:s<10?1:s<100?2:s<300?3:s<1000?4:5}
 function autoCat(s){setCat(cat(s))}
-function setCat(c){$$('.cats button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.c==c)));$('#concl').textContent=C[c];k('a').textContent=A[c];k('a2').textContent=A[c]}
+let base=null;
+// Le 75e percentile s'applique même si le score est < 100 UA : catégorie « modéré » (ACC/AHA 2026), CAC-DRS reste A1
+function render(){const c=base,p=num(k('pct')),up=(c==1||c==2)&&p!==null&&!isNaN(p)&&p>=75,shown=up?3:c;
+ $$('.cats button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.c==shown)));$('#concl').textContent=up?P[c]:C[c];k('a').textContent=A[c];k('a2').textContent=A[c]}
+function setCat(c){base=Number(c);render()}
 $$('.cats button').forEach(b=>b.onclick=()=>setCat(b.dataset.c));
-$('#reset').onclick=()=>{init();toast('Valeurs effacées')};
+$('#reset').onclick=()=>{base=null;init();toast('Valeurs effacées')};
 function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');setTimeout(()=>t.classList.remove('on'),1800)}
 function clean(){const c=$('#cr').cloneNode(true);
  c.querySelectorAll('.f').forEach(e=>{const s=document.createElement('span');s.textContent=e.textContent;e.replaceWith(s)});
