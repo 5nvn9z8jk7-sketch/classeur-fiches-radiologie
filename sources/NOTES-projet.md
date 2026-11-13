@@ -71,3 +71,20 @@ NE-05 (Neuro, 2 pages + atlas `src/gen/ne05.svg` dessiné à la main) : protocol
 ## Ajout du 13/11/2026 · pancréatite aiguë
 PA-02 (Pancréas, 2 pages + liens) : quand faire le scanner (ACG 2024, ACR AC), protocole biphasique, formes interstitielle/nécrosante et collections APFC/pseudokyste/ANC/WON (Atlanta révisée 2012), CTSI de Balthazar et CTSI modifié de Mortele, sévérité clinique, complications, pièges, compte rendu type. Classeur : 43 fiches.
 - Calculateur `#pancreatite` dans `web/outils_body.html` et `web/app.js` : mêmes réponses → CTSI (Balthazar 1990) et CTSI modifié (Mortele 2004) ; lien depuis PA-02 (`tools` dans `build_web.py`).
+
+## Règle : calculateur d'emblée (demande de l'utilisateur, 13/11/2026)
+Toute nouvelle fiche (ou fiche révisée) qui contient un score, une classification par points ou un algorithme décisionnel reçoit **d'emblée** un calculateur, sans attendre la demande.
+
+### Comment ajouter un calculateur (méthode à suivre sans réexplorer)
+1. `web/outils_body.html`
+   - Ajouter le lien dans la `<nav class="t-nav">` : `<div class="t-navg" style="--oc:<couleur organe>"><span>Organe</span><a href="#<id>">Nom</a></div>` (groupe existant si l'organe y est déjà).
+   - Ajouter une section, dans l'ordre des organes :
+     `<section class="t-box" id="<id>" style="--oc:<couleur>"><h2>Titre</h2><p>Contexte + lien <a href="f/<CODE>.html">fiche CODE</a></p>`
+     `<div class="t-grid"><form id="f-<id>">` puis des `<fieldset class="t-q"><legend>Question</legend><div class="t-opts">` (ajouter `t-col` pour des options longues en colonne) contenant des `<label><input type="radio|checkbox|number" name="…" value="…">Libellé<em>points</em></label>` ; une valeur `checked` par défaut pour chaque radio.
+     `</form><div class="t-res" id="res-<id>"></div></div><p class="t-note">Règles / seuils</p></section>`
+2. `web/app.js` : `bind('<id>',(f,form)=>{ … return {k:'Nom du score', v:valeur, cls:'c1'…'c5', cat:'catégorie', why:'détail du calcul', cdt:'conduite', ph:'phrase de compte rendu'} });`
+   - `f` est un FormData (`f.get`, `f.getAll`) ; `render()` affiche le résultat et la phrase copiable automatiquement. Couleurs : c1 vert, c3 orange, c4 orange foncé, c5 rouge. `dis(selecteur, vrai/faux)` grise des questions conditionnelles ; `n(x)` met la virgule décimale.
+   - Les questions dépendantes (arbre décisionnel) : griser avec `dis()` ou n'afficher que l'étape utile (voir `coroprep`, `avctt`).
+3. `web/build_web.py` : ajouter `'<CODE>':'<id>'` au dictionnaire `tools` (bouton « Calculateur interactif » en tête de fiche ; `multi` si plusieurs calculateurs) et incrémenter le nombre de calculateurs dans `w-stats`.
+4. Vérifier la syntaxe : `node -e "new Function(require('fs').readFileSync('web/app.js','utf8'))"`.
+5. Commit + push : le workflow GitHub reconstruit le site ; republier fiches-radiologie.pplx.app après accord.
