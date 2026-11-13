@@ -880,6 +880,39 @@
   ]
  },
  {
+  "code": "PA-02",
+  "organe": "Pancréas",
+  "oc": "#b5850b",
+  "ol": "#fbf6e6",
+  "pages": 3,
+  "plain": "Pancréatite aiguë – scanner (Atlanta 2012, CTSI)",
+  "title": "Pancréatite aiguë · <span>scanner (Atlanta 2012, CTSI)</span>",
+  "ref": "Atlanta révisée 2012 · ACG 2024 · ACR",
+  "sub": "délai du scanner, collections, Balthazar, CTSI modifié",
+  "sources": [
+   [
+    "Banks et al., Atlanta révisée 2012 (Gut 2013)",
+    "https://pubmed.ncbi.nlm.nih.gov/23100216/"
+   ],
+   [
+    "Tenner et al., ACG Guidelines 2024 (Am J Gastroenterol)",
+    "https://pubmed.ncbi.nlm.nih.gov/38857482/"
+   ],
+   [
+    "ACR Appropriateness Criteria – Acute Pancreatitis",
+    "https://acsearch.acr.org/docs/69468/Narrative/"
+   ],
+   [
+    "Balthazar et al., CTSI (Radiology 1990)",
+    "https://pubmed.ncbi.nlm.nih.gov/2296641/"
+   ],
+   [
+    "Mortele et al., CTSI modifié (AJR 2004)",
+    "https://pubmed.ncbi.nlm.nih.gov/15505289/"
+   ]
+  ]
+ },
+ {
   "code": "DI-01",
   "organe": "Tube digestif",
   "oc": "#c2410c",

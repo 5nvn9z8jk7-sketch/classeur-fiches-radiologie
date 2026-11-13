@@ -67,3 +67,6 @@ TR-04 (Transversal, 2 pages + atlas) : démarche commune, pacemaker/DAI/CRT (ide
 
 ## Ajout du 10/11/2026 · syndromes parkinsoniens
 NE-05 (Neuro, 2 pages + atlas `src/gen/ne05.svg` dessiné à la main) : protocole IRM, arbre diagnostique (cause secondaire → signes atypiques → DaTscan → MP/atypique), MP (IRM normale, queue d’hirondelle, DaTscan, MIBG, FDG), planimétrie PSP (M/P, diamètre AP, MRPI, MRPI 2.0), tableau comparatif MP/AMS/PSP/DCB/DCL avec place dans les critères (MDS 2015, MDS 2022, MDS 2017, Armstrong 2013, McKeith 2017), parkinsonismes secondaires, pièges, compte rendu type. Classeur : 42 fiches, 119 pages.
+
+## Ajout du 13/11/2026 · pancréatite aiguë
+PA-02 (Pancréas, 2 pages + liens) : quand faire le scanner (ACG 2024, ACR AC), protocole biphasique, formes interstitielle/nécrosante et collections APFC/pseudokyste/ANC/WON (Atlanta révisée 2012), CTSI de Balthazar et CTSI modifié de Mortele, sévérité clinique, complications, pièges, compte rendu type. Classeur : 43 fiches.

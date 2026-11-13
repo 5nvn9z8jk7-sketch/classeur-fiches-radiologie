@@ -37,7 +37,7 @@ def mkplan(front):
 front=5
 plan,total=mkplan(front)
 css='<link rel="stylesheet" href="base.css">'
-modal={"TR-01":"Scanner · IRM","TR-04":"Radio","TR-02":"Toutes","NE-01":"Scanner · IRM","NE-02":"IRM","NE-03":"Scanner","NE-04":"Scanner de perfusion","NE-05":"IRM · DaTscan","CO-01":"Écho","SE-01":"Mammo · écho · IRM","TH-01":"Scanner","TH-02":"Scanner faible dose","TH-03":"Angioscanner","TH-04":"Scanner (HRCT)","FO-01":"Scanner · IRM","FO-02":"Écho · CEUS","FO-03":"IRM · scanner · CEUS","RS-01":"Scanner · IRM","RS-02":"Scanner · IRM","PE-01":"IRM","PE-02":"Écho · IRM","PE-03":"IRM","PE-04":"IRM","OS-01":"Radio","OS-02":"Radio","OS-03":"IRM","OS-04":"Télérachis · EOS","OS-05":"Radio · écho · scanner","OS-06":"Pangonogramme · scanner · IRM","OS-07":"Radio","TR-03":"Scanner · IRM","CV-01":"Coroscanner","CV-02":"Scanner (score calcique)","CV-03":"Coroscanner (Cardiac CT Viewer)","CO-02":"TDM des rochers","PA-01":"IRM · scanner · EE","DI-01":"IRM","DI-02":"Scanner · écho","DI-03":"Écho · scanner · IRM","DI-04":"Scanner","DI-05":"IRM","DI-06":"IRM"}
+modal={"TR-01":"Scanner · IRM","TR-04":"Radio","TR-02":"Toutes","NE-01":"Scanner · IRM","NE-02":"IRM","NE-03":"Scanner","NE-04":"Scanner de perfusion","NE-05":"IRM · DaTscan","CO-01":"Écho","SE-01":"Mammo · écho · IRM","TH-01":"Scanner","TH-02":"Scanner faible dose","TH-03":"Angioscanner","TH-04":"Scanner (HRCT)","FO-01":"Scanner · IRM","FO-02":"Écho · CEUS","FO-03":"IRM · scanner · CEUS","RS-01":"Scanner · IRM","RS-02":"Scanner · IRM","PE-01":"IRM","PE-02":"Écho · IRM","PE-03":"IRM","PE-04":"IRM","OS-01":"Radio","OS-02":"Radio","OS-03":"IRM","OS-04":"Télérachis · EOS","OS-05":"Radio · écho · scanner","OS-06":"Pangonogramme · scanner · IRM","OS-07":"Radio","TR-03":"Scanner · IRM","CV-01":"Coroscanner","CV-02":"Scanner (score calcique)","CV-03":"Coroscanner (Cardiac CT Viewer)","CO-02":"TDM des rochers","PA-01":"IRM · scanner · EE","PA-02":"Scanner","DI-01":"IRM","DI-02":"Scanner · écho","DI-03":"Écho · scanner · IRM","DI-04":"Scanner","DI-05":"IRM","DI-06":"IRM"}
 cover=f'''<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8">{css}<style>
 body{{display:flex;flex-direction:column;height:277mm}}
 .top{{flex:1;display:flex;flex-direction:column;justify-content:center}}
@@ -88,6 +88,7 @@ veille={
 "FO-02":("LI-RADS US v2024 · CEUS v2017","—"),
 "FO-03":("EASL 2016","—"),
 "PA-01":("Kyoto 2024","—"),
+"PA-02":("Atlanta révisée 2012 · ACG 2024 · ACR AC Acute Pancreatitis","Pas de révision d'Atlanta annoncée ; terminologie des collections inchangée"),
 "DI-01":("ESGAR 2026 (partie I : bilan initial)","Partie II couverte par la fiche DI-05"),
 "DI-02":("WSES 2020","—"),
 "DI-03":("WSES Jerusalem 2025","Système de gradation WSES 2025 (6 grades) en cours de diffusion"),
