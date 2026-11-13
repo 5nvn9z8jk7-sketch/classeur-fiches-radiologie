@@ -5,6 +5,7 @@
 <div class="t-navg" style="--oc:#1f5fa8"><span>Thorax</span><a href="#fleischner">Fleischner</a><a href="#lungrads">Lung-RADS</a></div>
 <div class="t-navg" style="--oc:#be123c"><span>Cœur</span><a href="#cadrads">CAD-RADS 2.0</a><a href="#coroprep">Préparation coro</a></div>
 <div class="t-navg" style="--oc:#0f6e6e"><span>Foie</span><a href="#lirads">LI-RADS CT/IRM</a></div>
+<div class="t-navg" style="--oc:#b5850b"><span>Pancréas</span><a href="#pancreatite">CTSI · pancréatite</a></div>
 <div class="t-navg" style="--oc:#8b5e3c"><span>Rein</span><a href="#bosniak">Bosniak 2019</a></div>
 <div class="t-navg" style="--oc:#7a3b8f"><span>Pelvis</span><a href="#pirads">PI-RADS v2.1</a><a href="#oradsus">O-RADS US</a><a href="#oradsmri">O-RADS MRI</a></div>
 <div class="t-navg" style="--oc:#3d6b12"><span>Ostéo</span><a href="#bonerads">Bone-RADS</a></div>
@@ -185,6 +186,26 @@
 <label><input type="checkbox" name="am">≥ 1 en faveur de la malignité</label><label><input type="checkbox" name="ab">≥ 1 en faveur de la bénignité</label></div></fieldset>
 </div></form><div class="t-res" id="res-lirads"></div></div>
 <p class="t-note">Règles : un doute sur un critère le fait considérer comme absent ; les critères accessoires ajustent d'au plus une catégorie et ne permettent jamais d'atteindre LR-5 ; en présence de critères dans les deux sens, pas d'ajustement.</p>
+</section>
+
+<section class="t-box" id="pancreatite" style="--oc:#b5850b">
+<h2>Pancréatite aiguë · CTSI et CTSI modifié</h2>
+<p>Scanner injecté, idéalement à J5–J7 (au moins 72 h après le début des symptômes). Les mêmes réponses donnent le CTSI de Balthazar (1990) et le CTSI modifié de Mortele (2004). Voir la <a href="f/PA-02.html">fiche PA-02</a>.</p>
+<div class="t-grid"><form id="f-pancreatite">
+<fieldset class="t-q"><legend>Délai depuis le début des symptômes</legend><div class="t-opts">
+<label><input type="radio" name="d" value="early">&lt; 72 h</label><label><input type="radio" name="d" value="ok" checked>≥ 72 h</label></div></fieldset>
+<fieldset class="t-q"><legend>Aspect du pancréas et de la graisse (grade de Balthazar)</legend><div class="t-opts t-col">
+<label><input type="radio" name="g" value="A">A · pancréas normal<em>0</em></label>
+<label><input type="radio" name="g" value="B">B · augmentation de volume, focale ou diffuse<em>1</em></label>
+<label><input type="radio" name="g" value="C" checked>C · anomalie pancréatique + infiltration de la graisse péripancréatique<em>2</em></label>
+<label><input type="radio" name="g" value="D">D · une collection péripancréatique mal limitée<em>3</em></label>
+<label><input type="radio" name="g" value="E">E · au moins 2 collections et/ou gaz au contact<em>4</em></label></div></fieldset>
+<fieldset class="t-q"><legend>Nécrose du parenchyme (défaut de rehaussement)</legend><div class="t-opts">
+<label><input type="radio" name="n" value="0" checked>Aucune</label><label><input type="radio" name="n" value="1">≤ 30 %</label><label><input type="radio" name="n" value="2">30–50 %</label><label><input type="radio" name="n" value="3">&gt; 50 %</label></div></fieldset>
+<fieldset class="t-q"><legend>Complications extrapancréatiques (CTSI modifié)</legend><div class="t-opts">
+<label><input type="checkbox" name="x" value="épanchement pleural">Épanchement pleural</label><label><input type="checkbox" name="x" value="ascite">Ascite</label><label><input type="checkbox" name="x" value="complication vasculaire">Vasculaire (thrombose, pseudo-anévrisme, hémorragie)</label><label><input type="checkbox" name="x" value="atteinte parenchymateuse">Parenchymateuse (rate, foie, rein)</label><label><input type="checkbox" name="x" value="atteinte digestive">Digestive (paroi, fistule)</label></div></fieldset>
+</form><div class="t-res" id="res-pancreatite"></div></div>
+<p class="t-note">CTSI : grade A–E (0–4) + nécrose (0, 2, 4, 6) ; 0–3 bénigne, 4–6 modérée, 7–10 sévère. CTSI modifié : inflammation (0, 2, 4) + nécrose (0, 2, 4) + complications extrapancréatiques (2) ; 0–2 bénigne, 4–6 modérée, 8–10 sévère. La sévérité clinique d'Atlanta révisée dépend de la défaillance d'organe, pas de ces scores.</p>
 </section>
 
 <section class="t-box" id="bosniak" style="--oc:#8b5e3c">

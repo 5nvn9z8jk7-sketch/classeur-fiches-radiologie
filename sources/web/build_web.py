@@ -135,7 +135,7 @@ for i, m in enumerate(fiches):
     content = xlink(content, code)
     prev = fiches[i-1] if i > 0 else None; nxt = fiches[i+1] if i < len(fiches)-1 else None
     pn = '<nav class="w-pn" aria-label="Fiche précédente ou suivante">' + (f'<a href="{prev["code"]}.html"><small>Précédente</small>{prev["code"]} · {html.escape(html.unescape(prev["plain"]))}</a>' if prev else '<span></span>') + (f'<a class="nx" href="{nxt["code"]}.html"><small>Suivante</small>{nxt["code"]} · {html.escape(html.unescape(nxt["plain"]))}</a>' if nxt else '<span></span>') + '</nav>'
-    tools = {'NE-01':'aspects','NE-04':'avctt','FO-01':'lirads','CO-01':'eutirads','OS-01':'bonerads','TH-01':'fleischner','TH-02':'lungrads','CV-01':'cadrads','RS-01':'bosniak','PE-01':'pirads','TR-03':'noderads'}
+    tools = {'NE-01':'aspects','NE-04':'avctt','FO-01':'lirads','CO-01':'eutirads','OS-01':'bonerads','TH-01':'fleischner','TH-02':'lungrads','CV-01':'cadrads','RS-01':'bosniak','PA-02':'pancreatite','PE-01':'pirads','TR-03':'noderads'}
     multi = {'PE-02':(('oradsus','O-RADS US'),('oradsmri','O-RADS MRI'))}
     tl = f'<a class="w-btn ghost" href="../outils.html#{tools[code]}">Calculateur interactif</a>' if code in tools else ''.join(f'<a class="w-btn ghost" href="../outils.html#{a}">{l}</a>' for a, l in multi.get(code, ()))
     hdr = f'''<div class="w-fh" style="--oc:{m['oc']}"><div><span class="w-pill">{m['organe']} · {code}</span><h1>{m['title']}</h1><p>{m['ref']} · {m['sub']}</p></div>
@@ -155,7 +155,7 @@ for o in order:
 home = f'''<section class="w-hero"><div><h1>Fiches d'aide à la lecture en radiologie</h1>
 <p>{len(fiches)} fiches classées par organe, alignées sur les recommandations et classifications en vigueur en octobre 2026 : critères, seuils, catégories et conduites à tenir, avec schémas et liens vers les aspects d'imagerie attendus.</p>
 <div class="w-actions"><a class="w-btn" href="pdf/Classeur-fiches-radiologie.pdf" download>Classeur complet (PDF)</a><a class="w-btn ghost" href="pdf/Fiches-radiologie-par-organe.zip" download>PDF séparés (zip)</a><a class="w-btn ghost" href="outils.html">Calculateurs</a></div></div>
-<div class="w-stats"><div><b>{len(fiches)}</b><span>fiches</span></div><div><b>12</b><span>organes</span></div><div><b>16</b><span>calculateurs</span></div></div></section>
+<div class="w-stats"><div><b>{len(fiches)}</b><span>fiches</span></div><div><b>12</b><span>organes</span></div><div><b>17</b><span>calculateurs</span></div></div></section>
 <div class="w-filter"><input id="q" type="search" placeholder="Filtrer : PI-RADS, wash-out, Bosniak, embolie…" aria-label="Filtrer les fiches"><div class="w-chips" id="chips"><button class="on" data-o="">Tous</button>{''.join(f'<button data-o="{o}" style="--oc:{ocol[o]}">{o}</button>' for o in order)}</div></div>
 <div id="results" class="w-results" hidden></div>
 <div id="orgs">{cards}</div>

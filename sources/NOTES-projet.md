@@ -70,3 +70,4 @@ NE-05 (Neuro, 2 pages + atlas `src/gen/ne05.svg` dessiné à la main) : protocol
 
 ## Ajout du 13/11/2026 · pancréatite aiguë
 PA-02 (Pancréas, 2 pages + liens) : quand faire le scanner (ACG 2024, ACR AC), protocole biphasique, formes interstitielle/nécrosante et collections APFC/pseudokyste/ANC/WON (Atlanta révisée 2012), CTSI de Balthazar et CTSI modifié de Mortele, sévérité clinique, complications, pièges, compte rendu type. Classeur : 43 fiches.
+- Calculateur `#pancreatite` dans `web/outils_body.html` et `web/app.js` : mêmes réponses → CTSI (Balthazar 1990) et CTSI modifié (Mortele 2004) ; lien depuis PA-02 (`tools` dans `build_web.py`).

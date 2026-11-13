@@ -19,6 +19,7 @@ Site en ligne : https://fiches-radiologie.pplx.app
 Les sources des fiches CV-02 (score calcique) et CO-02 (otospongiose) ne sont pas dans `sources/` : pour ces deux fiches, seule la version publiée dans `site/` existe. Ne pas reconstruire le site à partir de `sources/` sans les restaurer, sinon ces fiches disparaîtraient.
 
 ## Dernières modifications
+- 13/11/2026 : calculateur « CTSI · pancréatite » (CTSI de Balthazar et CTSI modifié avec phrase de compte rendu), bouton depuis la fiche PA-02 ; 17 calculateurs.
 - 13/11/2026 : fiche PA-02, pancréatite aiguë au scanner (délai du scanner selon ACG 2024 et ACR, protocole, formes et collections d’Atlanta révisée 2012, Balthazar/CTSI et CTSI modifié, sévérité clinique, complications, pièges, compte rendu).
 - 10/11/2026 : fiche NE-05, syndromes parkinsoniens en imagerie (protocole IRM, arbre diagnostique, maladie de Parkinson, mesures planimétriques de la PSP, tableau comparatif MP/AMS/PSP/DCB/DCL, parkinsonismes secondaires, pièges, compte rendu type, atlas schématique).
 - 10/11/2026 : fiche TR-04, contrôle radiographique des dispositifs implantés (pacemaker, DAI, CRT, sans sonde, DAI sous-cutané, stérilet, Essure avant et après retrait, chambres et cathéters centraux, pinch-off, sonde JJ, dérivations du LCR, valves programmables, neurostimulateurs) avec compte rendu type ; numéros de page du sommaire corrigés (décalage d’une page).
