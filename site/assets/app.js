@@ -169,6 +169,19 @@ bind('lirads',(f)=>{const pre=f.get('pre'); dis('#li-grid',pre!=='none'); let k=
  const [cl,code,lab,cdt]=LIC[k];
  return {k:'Catégorie',cls:cl,cat:`${code} · ${lab}`,why,cdt,ph:(feats?feats.replace('<','&lt;')+' : ':'')+`${code} (${lab.toLowerCase()}, LI-RADS CT/IRM v2018).`}});
 
+// ---------- Pancréatite aiguë : CTSI et CTSI modifié ----------
+bind('pancreatite',(f)=>{const g=f.get('g'), nk=+f.get('n'), x=f.getAll('x'), early=f.get('d')==='early';
+ const gp={A:0,B:1,C:2,D:3,E:4}[g], np=[0,2,4,6][nk], ctsi=gp+np;
+ const mi={A:0,B:2,C:2,D:4,E:4}[g], mn=[0,2,4,4][nk], mx=x.length?2:0, m=mi+mn+mx;
+ const nec=['sans nécrose','nécrose ≤ 30 %','nécrose 30–50 %','nécrose > 50 %'][nk];
+ const c1=ctsi<=3?'bénigne':ctsi<=6?'modérée':'sévère', c2=m<=2?'bénigne':m<=6?'modérée':'sévère';
+ const cls=m>=8||ctsi>=7?'c5':m>=4||ctsi>=4?'c3':'c1';
+ const why=`CTSI = grade ${g} (${gp}) + nécrose (${np}). CTSI modifié = inflammation (${mi}) + nécrose (${mn}) + complications extrapancréatiques (${mx}).`+(early?' Scanner < 72 h : la nécrose peut être sous-estimée.':'');
+ const forme=nk?'nécrosante':'interstitielle œdémateuse';
+ return {k:'CTSI · CTSI modifié',v:`${ctsi} · ${m}<small>/10</small>`,cls,cat:`CTSI ${ctsi}/10 (${c1}) · CTSI modifié ${m}/10 (${c2})`,why,
+  cdt:'Sévérité clinique (Atlanta révisée) fixée par la défaillance d\'organe. Nommer les collections selon Atlanta (APFC, ANC, pseudokyste, WON). Voir PA-02.',
+  ph:`Pancréatite aiguë ${forme}${nk?' ('+nec+')':''}, grade ${g} de Balthazar. CTSI ${ctsi}/10 (${c1}) ; CTSI modifié ${m}/10 (${c2})`+(x.length?`, complications extrapancréatiques : ${x.join(', ')}.`:'.')+(early?' Examen réalisé moins de 72 h après le début des symptômes : étendue de la nécrose possiblement sous-estimée.':'')}});
+
 // ---------- Bosniak ----------
 bind('bosniak',(f)=>{const c=f.get('c'); const M={I:['c1','I','≈ 0 %','Aucune surveillance.'],II:['c1','II','≈ 0 %','Aucune surveillance.'],IIF:['c3','IIF','≈ 5–10 %','Contrôle à 6 et 12 mois, puis annuel pendant 5 ans.'],IIFm:['c3','IIF','≈ 5–10 %','Contrôle à 6 et 12 mois, puis annuel pendant 5 ans.'],III:['c4','III','≈ 50 %','Surveillance active ou chirurgie / ablation (RCP).'],IV:['c5','IV','≈ 90 %','Chirurgie ou ablation.']}[c];
  return {k:'Bosniak v2019',v:M[1],cls:M[0],cat:`Classe ${M[1]} · malignité ${M[2]}`,cdt:M[3],ph:`Masse kystique rénale classée Bosniak ${M[1]} (v2019). ${M[3]}`}});
